@@ -562,6 +562,75 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#spectra.MakeSpectra" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-class"></code>&nbsp;MakeSpectra
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label=" MakeSpectra">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spectra.MakeSpectra.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;__init__
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spectra.MakeSpectra.load_event" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;load_event
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spectra.MakeSpectra.load_vignetting" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;load_vignetting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spectra.MakeSpectra.make_arfs_and_spectra" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;make_arfs_and_spectra
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spectra.MakeSpectra.make_single_arf_and_spectrum" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;make_single_arf_and_spectrum
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spectra.eval_quadratic_piecewise" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;eval_quadratic_piecewise
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#spectra.quadratic_from_bin_averages" class="md-nav__link">
     <span class="md-ellipsis">
       <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;quadratic_from_bin_averages
@@ -718,6 +787,75 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#spectra.MakeSpectra" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-class"></code>&nbsp;MakeSpectra
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label=" MakeSpectra">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spectra.MakeSpectra.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;__init__
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spectra.MakeSpectra.load_event" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;load_event
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spectra.MakeSpectra.load_vignetting" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;load_vignetting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spectra.MakeSpectra.make_arfs_and_spectra" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;make_arfs_and_spectra
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spectra.MakeSpectra.make_single_arf_and_spectrum" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;make_single_arf_and_spectrum
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spectra.eval_quadratic_piecewise" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;eval_quadratic_piecewise
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#spectra.quadratic_from_bin_averages" class="md-nav__link">
     <span class="md-ellipsis">
       <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;quadratic_from_bin_averages
@@ -778,6 +916,1253 @@
 
 
 
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="spectra.MakeSpectra" class="doc doc-heading">
+            <code>MakeSpectra</code>
+
+
+<a href="#spectra.MakeSpectra" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+
+        <p>Class to create spectra from event lists output by SIXTE. This creates one spectrum per bin, given a binning, 
+with the corresponding ARF that accounts for the vignetting.</p>
+
+
+
+
+
+
+
+              <details class="quote">
+                <summary>Source code in <code>src/xifu_cluster_sim/spectra.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span>
+<span class="normal">282</span>
+<span class="normal">283</span>
+<span class="normal">284</span>
+<span class="normal">285</span>
+<span class="normal">286</span>
+<span class="normal">287</span>
+<span class="normal">288</span>
+<span class="normal">289</span>
+<span class="normal">290</span>
+<span class="normal">291</span>
+<span class="normal">292</span>
+<span class="normal">293</span>
+<span class="normal">294</span>
+<span class="normal">295</span>
+<span class="normal">296</span>
+<span class="normal">297</span>
+<span class="normal">298</span>
+<span class="normal">299</span>
+<span class="normal">300</span>
+<span class="normal">301</span>
+<span class="normal">302</span>
+<span class="normal">303</span>
+<span class="normal">304</span>
+<span class="normal">305</span>
+<span class="normal">306</span>
+<span class="normal">307</span>
+<span class="normal">308</span>
+<span class="normal">309</span>
+<span class="normal">310</span>
+<span class="normal">311</span>
+<span class="normal">312</span>
+<span class="normal">313</span>
+<span class="normal">314</span>
+<span class="normal">315</span>
+<span class="normal">316</span>
+<span class="normal">317</span>
+<span class="normal">318</span>
+<span class="normal">319</span>
+<span class="normal">320</span>
+<span class="normal">321</span>
+<span class="normal">322</span>
+<span class="normal">323</span>
+<span class="normal">324</span>
+<span class="normal">325</span>
+<span class="normal">326</span>
+<span class="normal">327</span>
+<span class="normal">328</span>
+<span class="normal">329</span>
+<span class="normal">330</span>
+<span class="normal">331</span>
+<span class="normal">332</span>
+<span class="normal">333</span>
+<span class="normal">334</span>
+<span class="normal">335</span>
+<span class="normal">336</span>
+<span class="normal">337</span>
+<span class="normal">338</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">MakeSpectra</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class to create spectra from event lists output by SIXTE. This creates one spectrum per bin, given a binning, </span>
+<span class="sd">    with the corresponding ARF that accounts for the vignetting.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                <span class="n">binning</span><span class="p">,</span>
+                <span class="n">xifu_config</span> <span class="o">=</span> <span class="n">XIFU_Config</span><span class="p">()):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Instantiate the class</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            binning (binning): Binning object created with the binning functions</span>
+<span class="sd">            xifu_config (XIFU_Config): X-IFU Config object</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">binning</span> <span class="o">=</span> <span class="n">binning</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xifu_config</span> <span class="o">=</span> <span class="n">xifu_config</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">load_vignetting</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                       <span class="n">vign_file_path</span> <span class="o">=</span> <span class="s1">&#39;/xifu/usr/share/sixte/instruments/athena-xifu_2024_11/baseline/instdata/athena_vig_13rows_20240326.fits&#39;</span><span class="p">,</span>
+                       <span class="n">arf_file_path</span> <span class="o">=</span> <span class="s1">&#39;/xifu/home/mola/XIFU_Sims_Turbulence_NewConfig/ARF.arf&#39;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Load the vignetting file and compute the vignetting as a continuous function of energy using </span>
+<span class="sd">        a quadratic function. This allows to take the vignetting into account without awkwarldy dealing with </span>
+<span class="sd">        the fact that it is binned in energy. </span>
+<span class="sd">        The vignetting file contains the average vignetting for a given offset angle and within a given energy bin.</span>
+<span class="sd">        I approximate it by a smooth continuous quadratic function in energy in each bin, such that the average in each bin</span>
+<span class="sd">        corresponds to the file.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            vign_file_path (str): Path to the vignetting file</span>
+<span class="sd">            arf_file_path (str): Path to the ARF file</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Load vignetting file and assign arrays</span>
+        <span class="n">hdu_vign</span><span class="o">=</span><span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">vign_file_path</span><span class="p">)</span>
+        <span class="n">vign</span><span class="o">=</span><span class="n">hdu_vign</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vign_E_centers</span> <span class="o">=</span> <span class="p">(</span><span class="n">vign</span><span class="p">[</span><span class="s1">&#39;ENERG_LO&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">vign</span><span class="p">[</span><span class="s1">&#39;ENERG_HI&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vign_E_widths</span> <span class="o">=</span> <span class="p">(</span><span class="n">vign</span><span class="p">[</span><span class="s1">&#39;ENERG_HI&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">vign</span><span class="p">[</span><span class="s1">&#39;ENERG_LO&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vign_E_bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">vign</span><span class="p">[</span><span class="s1">&#39;ENERG_LO&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">vign</span><span class="p">[</span><span class="s1">&#39;ENERG_HI&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vignet_integre</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">vign</span><span class="p">[</span><span class="s1">&#39;VIGNET&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">vign</span><span class="p">[</span><span class="s1">&#39;THETA&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="mf">60.</span> <span class="c1">#Arcminutes</span>
+
+        <span class="c1"># Load arf data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">arf_file_path</span> <span class="o">=</span> <span class="n">arf_file_path</span>
+        <span class="n">hdu_arf</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">arf_file_path</span><span class="p">)</span>
+        <span class="n">arf</span> <span class="o">=</span> <span class="n">hdu_arf</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">arf_specresp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">arf</span><span class="p">[</span><span class="s1">&#39;SPECRESP&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">E_arf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">arf</span><span class="p">[</span><span class="s1">&#39;ENERG_LO&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">arf</span><span class="p">[</span><span class="s1">&#39;ENERG_HI&#39;</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">vign_on_arf_bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span>
+        								<span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">theta</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                                    	 <span class="bp">self</span><span class="o">.</span><span class="n">E_arf</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                                    	<span class="p">)</span>
+        								<span class="p">)</span>
+
+        <span class="c1"># For each offset angle in the vignetting file</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">theta</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+            <span class="c1"># Compute coefficients of the quadratic function</span>
+            <span class="n">coeffs</span> <span class="o">=</span> <span class="n">quadratic_from_bin_averages</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vign_E_bins</span><span class="p">,</span> 
+                                                 <span class="bp">self</span><span class="o">.</span><span class="n">vignet_integre</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> 
+                                                 <span class="n">boundary</span> <span class="o">=</span> <span class="s1">&#39;natural&#39;</span><span class="p">)</span>
+
+            <span class="c1"># Compute quadratic function at offset angle</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">vign_on_arf_bins</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">eval_quadratic_piecewise</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vign_E_bins</span><span class="p">,</span> 
+                                                           <span class="n">coeffs</span><span class="p">,</span> 
+                                                           <span class="bp">self</span><span class="o">.</span><span class="n">E_arf</span><span class="p">)</span> 
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">load_event</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                   <span class="n">event_file_path</span><span class="p">,</span>
+                   <span class="n">grades_to_keep</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Load event file to transform into spectra</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            event_file_path (str): Path to the event file</span>
+<span class="sd">            grades_to_keep (list): List of valid grades to keep for event making</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">hdu_evt</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">event_file_path</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">event_file_path</span> <span class="o">=</span> <span class="n">event_file_path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">evt_data</span> <span class="o">=</span> <span class="n">hdu_evt</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">evt_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">evt_data</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">evt_data</span><span class="p">[</span><span class="s1">&#39;GRADING&#39;</span><span class="p">],</span> <span class="n">grades_to_keep</span><span class="p">)]</span> 
+
+
+        <span class="n">ra_offset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">evt_data</span><span class="p">[</span><span class="s1">&#39;DETY&#39;</span><span class="p">]</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">xifu_config</span><span class="o">.</span><span class="n">pixsize_degree</span><span class="o">.</span><span class="n">value</span>
+        <span class="n">dec_offset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">evt_data</span><span class="p">[</span><span class="s1">&#39;DETX&#39;</span><span class="p">]</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">xifu_config</span><span class="o">.</span><span class="n">pixsize_degree</span><span class="o">.</span><span class="n">value</span>
+        <span class="c1"># Angular distance from center in arcminutes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">evt_theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span>
+                                            <span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span>
+                                                <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">dec_offset</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">ra_offset</span><span class="p">))</span>
+                                                    <span class="p">)</span> 
+                                            <span class="p">)</span> <span class="o">*</span> <span class="mi">60</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">make_arfs_and_spectra</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
+                              <span class="n">spectra_path</span><span class="p">,</span>
+                              <span class="n">numproc</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create one spectrum and one arf per bin in the binning.</span>
+<span class="sd">        Parallelized over N processes.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            spectra_path (str): Path to where the events and spectra should be stored</span>
+<span class="sd">            numproc (int): Number of parallel processes </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">results</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="n">numproc</span><span class="p">,</span> 
+                           <span class="n">prefer</span><span class="o">=</span><span class="s2">&quot;threads&quot;</span><span class="p">,</span>
+                          <span class="n">batch_size</span> <span class="o">=</span> <span class="s1">&#39;auto&#39;</span><span class="p">)(</span>
+                                <span class="n">delayed</span><span class="p">(</span>
+                                    <span class="bp">self</span><span class="o">.</span><span class="n">make_single_arf_and_spectrum</span>
+                                        <span class="p">)(</span><span class="n">bin_number</span><span class="p">,</span> 
+                                        <span class="n">spectra_path</span>
+                                        <span class="p">)</span> <span class="k">for</span> <span class="n">bin_number</span> <span class="ow">in</span> <span class="n">tqdm_notebook</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">binning</span><span class="o">.</span><span class="n">nb_bins</span><span class="p">),</span> 
+                                                                          <span class="n">total</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">binning</span><span class="o">.</span><span class="n">nb_bins</span><span class="p">,</span> 
+                                                                          <span class="n">desc</span> <span class="o">=</span> <span class="s1">&#39;Making arfs and spectra&#39;</span>
+                                                                         <span class="p">)</span>
+                                <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">make_single_arf_and_spectrum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
+                                     <span class="n">bin_number</span><span class="p">,</span>
+                                     <span class="n">spectra_path</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a spectrum and arf for a given bin number.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            bin_number (int): Bin number in the binning object</span>
+<span class="sd">            spectra_path (str): Where to save the ARF, event file and spectrum that have been created</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">pixels_in_region</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">binning</span><span class="o">.</span><span class="n">binning_dict</span><span class="p">[</span><span class="n">bin_number</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">interpolated_vignet</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">E_arf</span><span class="p">)</span>
+        <span class="n">counts_tot</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">pixels_in_region</span><span class="p">)):</span>
+
+            <span class="c1"># Real pixel number</span>
+            <span class="n">pix_num</span><span class="o">=</span><span class="n">pixels_in_region</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> 
+
+
+            <span class="c1">#Compute theta</span>
+            <span class="n">theta_pix</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">evt_theta</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">evt_data</span><span class="p">[</span><span class="s1">&#39;PIXID&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">pix_num</span><span class="p">])</span>
+
+            <span class="c1"># Weight with counts</span>
+            <span class="n">counts_in_band</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">evt_data</span><span class="p">[</span><span class="s1">&#39;PIXID&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">pix_num</span><span class="p">)</span>
+            <span class="n">counts_tot</span> <span class="o">+=</span> <span class="n">counts_in_band</span>
+
+            <span class="c1"># Broadcast interpolation on axis of energies</span>
+            <span class="n">func_to_vmap</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">vignet_pt</span> <span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">theta_pix</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">theta</span><span class="p">,</span> <span class="n">vignet_pt</span><span class="p">)</span> 
+            <span class="n">vmapped_interp</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">vmap</span><span class="p">(</span><span class="n">func_to_vmap</span><span class="p">)</span>
+            <span class="n">interpolated_vignet</span> <span class="o">+=</span> <span class="n">vmapped_interp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vign_on_arf_bins</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">*</span> <span class="n">counts_in_band</span> 
+
+        <span class="n">interpolated_vignet</span> <span class="o">/=</span> <span class="n">counts_tot</span>
+
+        <span class="c1"># Load and save modified ARF</span>
+        <span class="n">hdu_arf</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">arf_file_path</span><span class="p">)</span>
+        <span class="n">hdu_arf</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;SPECRESP&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">arf_specresp</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">interpolated_vignet</span><span class="p">)</span>
+        <span class="n">hdu_arf</span><span class="o">.</span><span class="n">writeto</span><span class="p">(</span><span class="n">spectra_path</span> <span class="o">+</span> <span class="s1">&#39;spec_</span><span class="si">{}</span><span class="s1">.arf&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bin_number</span><span class="p">),</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="c1"># Load and save modified event</span>
+        <span class="n">hdu_evt</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">event_file_path</span><span class="p">)</span>
+        <span class="n">hdu_evt</span><span class="p">[</span><span class="s1">&#39;EVENTS&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">[</span><span class="s1">&#39;ANCRFILE&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">spectra_path</span> <span class="o">+</span> <span class="s1">&#39;/spec_</span><span class="si">{}</span><span class="s1">.arf&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bin_number</span><span class="p">)</span>
+        <span class="n">hdu_evt</span><span class="p">[</span><span class="s1">&#39;EVENTS&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">[</span><span class="s1">&#39;RESPFILE&#39;</span><span class="p">]</span><span class="o">=</span> <span class="s1">&#39;/xifu/home/mola/XIFU_Sims_Turbulence_NewConfig/RMF.rmf&#39;</span>
+
+        <span class="n">hdu_evt</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">evt_data</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">evt_data</span><span class="p">[</span><span class="s1">&#39;PIXID&#39;</span><span class="p">],</span>
+                                                     <span class="n">pixels_in_region</span><span class="p">)]</span>
+
+        <span class="n">evt_filename</span> <span class="o">=</span> <span class="n">spectra_path</span> <span class="o">+</span> <span class="s1">&#39;/spec_</span><span class="si">{}</span><span class="s1">.evt&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bin_number</span><span class="p">)</span>
+        <span class="n">hdu_evt</span><span class="o">.</span><span class="n">writeto</span><span class="p">(</span><span class="n">evt_filename</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="c1">#Make spectrum using makespec</span>
+        <span class="n">pha_filename</span> <span class="o">=</span> <span class="n">evt_filename</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.evt&#39;</span><span class="p">,</span><span class="s1">&#39;.pha&#39;</span><span class="p">)</span>
+        <span class="n">arguments</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;makespec&quot;</span><span class="p">,</span>
+                   <span class="s2">&quot;EvtFile=</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">evt_filename</span><span class="p">,</span>
+                   <span class="s2">&quot;Spectrum=</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">pha_filename</span><span class="p">,</span>
+                   <span class="s2">&quot;clobber=T&quot;</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Calling:&quot;</span><span class="p">,</span><span class="n">arguments</span><span class="p">)</span>
+        <span class="n">subprocess</span><span class="o">.</span><span class="n">check_call</span><span class="p">(</span><span class="n">arguments</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="kc">None</span>
+</code></pre></div></td></tr></table></div>
+              </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="spectra.MakeSpectra.__init__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">binning</span><span class="p">,</span> <span class="n">xifu_config</span><span class="o">=</span><span class="n">XIFU_Config</span><span class="p">())</span></code>
+
+<a href="#spectra.MakeSpectra.__init__" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Instantiate the class</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>binning</code>
+            </td>
+            <td>
+                  <code><span title="spectra.MakeSpectra(binning)">binning</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Binning object created with the binning functions</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>xifu_config</code>
+            </td>
+            <td>
+                  <code><span title="spectra.xifu_config.XIFU_Config">XIFU_Config</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>X-IFU Config object</p>
+              </div>
+            </td>
+            <td>
+                  <code><span title="spectra.xifu_config.XIFU_Config">XIFU_Config</span>()</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+            <details class="quote">
+              <summary>Source code in <code>src/xifu_cluster_sim/spectra.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+            <span class="n">binning</span><span class="p">,</span>
+            <span class="n">xifu_config</span> <span class="o">=</span> <span class="n">XIFU_Config</span><span class="p">()):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Instantiate the class</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        binning (binning): Binning object created with the binning functions</span>
+<span class="sd">        xifu_config (XIFU_Config): X-IFU Config object</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">binning</span> <span class="o">=</span> <span class="n">binning</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">xifu_config</span> <span class="o">=</span> <span class="n">xifu_config</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="spectra.MakeSpectra.load_event" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">load_event</span><span class="p">(</span><span class="n">event_file_path</span><span class="p">,</span> <span class="n">grades_to_keep</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span></code>
+
+<a href="#spectra.MakeSpectra.load_event" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Load event file to transform into spectra</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>event_file_path</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Path to the event file</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>grades_to_keep</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>List of valid grades to keep for event making</p>
+              </div>
+            </td>
+            <td>
+                  <code>[1]</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+            <details class="quote">
+              <summary>Source code in <code>src/xifu_cluster_sim/spectra.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">load_event</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+               <span class="n">event_file_path</span><span class="p">,</span>
+               <span class="n">grades_to_keep</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Load event file to transform into spectra</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        event_file_path (str): Path to the event file</span>
+<span class="sd">        grades_to_keep (list): List of valid grades to keep for event making</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">hdu_evt</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">event_file_path</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">event_file_path</span> <span class="o">=</span> <span class="n">event_file_path</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">evt_data</span> <span class="o">=</span> <span class="n">hdu_evt</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">evt_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">evt_data</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">evt_data</span><span class="p">[</span><span class="s1">&#39;GRADING&#39;</span><span class="p">],</span> <span class="n">grades_to_keep</span><span class="p">)]</span> 
+
+
+    <span class="n">ra_offset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">evt_data</span><span class="p">[</span><span class="s1">&#39;DETY&#39;</span><span class="p">]</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">xifu_config</span><span class="o">.</span><span class="n">pixsize_degree</span><span class="o">.</span><span class="n">value</span>
+    <span class="n">dec_offset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">evt_data</span><span class="p">[</span><span class="s1">&#39;DETX&#39;</span><span class="p">]</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">xifu_config</span><span class="o">.</span><span class="n">pixsize_degree</span><span class="o">.</span><span class="n">value</span>
+    <span class="c1"># Angular distance from center in arcminutes</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">evt_theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span>
+                                        <span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span>
+                                            <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">dec_offset</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">ra_offset</span><span class="p">))</span>
+                                                <span class="p">)</span> 
+                                        <span class="p">)</span> <span class="o">*</span> <span class="mi">60</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="spectra.MakeSpectra.load_vignetting" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">load_vignetting</span><span class="p">(</span><span class="n">vign_file_path</span><span class="o">=</span><span class="s1">&#39;/xifu/usr/share/sixte/instruments/athena-xifu_2024_11/baseline/instdata/athena_vig_13rows_20240326.fits&#39;</span><span class="p">,</span> <span class="n">arf_file_path</span><span class="o">=</span><span class="s1">&#39;/xifu/home/mola/XIFU_Sims_Turbulence_NewConfig/ARF.arf&#39;</span><span class="p">)</span></code>
+
+<a href="#spectra.MakeSpectra.load_vignetting" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Load the vignetting file and compute the vignetting as a continuous function of energy using 
+a quadratic function. This allows to take the vignetting into account without awkwarldy dealing with 
+the fact that it is binned in energy. 
+The vignetting file contains the average vignetting for a given offset angle and within a given energy bin.
+I approximate it by a smooth continuous quadratic function in energy in each bin, such that the average in each bin
+corresponds to the file.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>vign_file_path</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Path to the vignetting file</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;/xifu/usr/share/sixte/instruments/athena-xifu_2024_11/baseline/instdata/athena_vig_13rows_20240326.fits&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>arf_file_path</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Path to the ARF file</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;/xifu/home/mola/XIFU_Sims_Turbulence_NewConfig/ARF.arf&#39;</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+            <details class="quote">
+              <summary>Source code in <code>src/xifu_cluster_sim/spectra.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">load_vignetting</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                   <span class="n">vign_file_path</span> <span class="o">=</span> <span class="s1">&#39;/xifu/usr/share/sixte/instruments/athena-xifu_2024_11/baseline/instdata/athena_vig_13rows_20240326.fits&#39;</span><span class="p">,</span>
+                   <span class="n">arf_file_path</span> <span class="o">=</span> <span class="s1">&#39;/xifu/home/mola/XIFU_Sims_Turbulence_NewConfig/ARF.arf&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Load the vignetting file and compute the vignetting as a continuous function of energy using </span>
+<span class="sd">    a quadratic function. This allows to take the vignetting into account without awkwarldy dealing with </span>
+<span class="sd">    the fact that it is binned in energy. </span>
+<span class="sd">    The vignetting file contains the average vignetting for a given offset angle and within a given energy bin.</span>
+<span class="sd">    I approximate it by a smooth continuous quadratic function in energy in each bin, such that the average in each bin</span>
+<span class="sd">    corresponds to the file.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        vign_file_path (str): Path to the vignetting file</span>
+<span class="sd">        arf_file_path (str): Path to the ARF file</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Load vignetting file and assign arrays</span>
+    <span class="n">hdu_vign</span><span class="o">=</span><span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">vign_file_path</span><span class="p">)</span>
+    <span class="n">vign</span><span class="o">=</span><span class="n">hdu_vign</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">vign_E_centers</span> <span class="o">=</span> <span class="p">(</span><span class="n">vign</span><span class="p">[</span><span class="s1">&#39;ENERG_LO&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">vign</span><span class="p">[</span><span class="s1">&#39;ENERG_HI&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">vign_E_widths</span> <span class="o">=</span> <span class="p">(</span><span class="n">vign</span><span class="p">[</span><span class="s1">&#39;ENERG_HI&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">vign</span><span class="p">[</span><span class="s1">&#39;ENERG_LO&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">vign_E_bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">vign</span><span class="p">[</span><span class="s1">&#39;ENERG_LO&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">vign</span><span class="p">[</span><span class="s1">&#39;ENERG_HI&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">vignet_integre</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">vign</span><span class="p">[</span><span class="s1">&#39;VIGNET&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">vign</span><span class="p">[</span><span class="s1">&#39;THETA&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="mf">60.</span> <span class="c1">#Arcminutes</span>
+
+    <span class="c1"># Load arf data</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">arf_file_path</span> <span class="o">=</span> <span class="n">arf_file_path</span>
+    <span class="n">hdu_arf</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">arf_file_path</span><span class="p">)</span>
+    <span class="n">arf</span> <span class="o">=</span> <span class="n">hdu_arf</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">arf_specresp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">arf</span><span class="p">[</span><span class="s1">&#39;SPECRESP&#39;</span><span class="p">])</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">E_arf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">arf</span><span class="p">[</span><span class="s1">&#39;ENERG_LO&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">arf</span><span class="p">[</span><span class="s1">&#39;ENERG_HI&#39;</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">vign_on_arf_bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span>
+    								<span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">theta</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                                	 <span class="bp">self</span><span class="o">.</span><span class="n">E_arf</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                                	<span class="p">)</span>
+    								<span class="p">)</span>
+
+    <span class="c1"># For each offset angle in the vignetting file</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">theta</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="c1"># Compute coefficients of the quadratic function</span>
+        <span class="n">coeffs</span> <span class="o">=</span> <span class="n">quadratic_from_bin_averages</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vign_E_bins</span><span class="p">,</span> 
+                                             <span class="bp">self</span><span class="o">.</span><span class="n">vignet_integre</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> 
+                                             <span class="n">boundary</span> <span class="o">=</span> <span class="s1">&#39;natural&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Compute quadratic function at offset angle</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vign_on_arf_bins</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">eval_quadratic_piecewise</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vign_E_bins</span><span class="p">,</span> 
+                                                       <span class="n">coeffs</span><span class="p">,</span> 
+                                                       <span class="bp">self</span><span class="o">.</span><span class="n">E_arf</span><span class="p">)</span> 
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="spectra.MakeSpectra.make_arfs_and_spectra" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">make_arfs_and_spectra</span><span class="p">(</span><span class="n">spectra_path</span><span class="p">,</span> <span class="n">numproc</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span></code>
+
+<a href="#spectra.MakeSpectra.make_arfs_and_spectra" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Create one spectrum and one arf per bin in the binning.
+Parallelized over N processes.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>spectra_path</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Path to where the events and spectra should be stored</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>numproc</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Number of parallel processes</p>
+              </div>
+            </td>
+            <td>
+                  <code>1</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+            <details class="quote">
+              <summary>Source code in <code>src/xifu_cluster_sim/spectra.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_arfs_and_spectra</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
+                          <span class="n">spectra_path</span><span class="p">,</span>
+                          <span class="n">numproc</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create one spectrum and one arf per bin in the binning.</span>
+<span class="sd">    Parallelized over N processes.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        spectra_path (str): Path to where the events and spectra should be stored</span>
+<span class="sd">        numproc (int): Number of parallel processes </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">results</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="n">numproc</span><span class="p">,</span> 
+                       <span class="n">prefer</span><span class="o">=</span><span class="s2">&quot;threads&quot;</span><span class="p">,</span>
+                      <span class="n">batch_size</span> <span class="o">=</span> <span class="s1">&#39;auto&#39;</span><span class="p">)(</span>
+                            <span class="n">delayed</span><span class="p">(</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">make_single_arf_and_spectrum</span>
+                                    <span class="p">)(</span><span class="n">bin_number</span><span class="p">,</span> 
+                                    <span class="n">spectra_path</span>
+                                    <span class="p">)</span> <span class="k">for</span> <span class="n">bin_number</span> <span class="ow">in</span> <span class="n">tqdm_notebook</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">binning</span><span class="o">.</span><span class="n">nb_bins</span><span class="p">),</span> 
+                                                                      <span class="n">total</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">binning</span><span class="o">.</span><span class="n">nb_bins</span><span class="p">,</span> 
+                                                                      <span class="n">desc</span> <span class="o">=</span> <span class="s1">&#39;Making arfs and spectra&#39;</span>
+                                                                     <span class="p">)</span>
+                            <span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="spectra.MakeSpectra.make_single_arf_and_spectrum" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">make_single_arf_and_spectrum</span><span class="p">(</span><span class="n">bin_number</span><span class="p">,</span> <span class="n">spectra_path</span><span class="p">)</span></code>
+
+<a href="#spectra.MakeSpectra.make_single_arf_and_spectrum" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Create a spectrum and arf for a given bin number.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>bin_number</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Bin number in the binning object</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>spectra_path</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Where to save the ARF, event file and spectrum that have been created</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+            <details class="quote">
+              <summary>Source code in <code>src/xifu_cluster_sim/spectra.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span>
+<span class="normal">282</span>
+<span class="normal">283</span>
+<span class="normal">284</span>
+<span class="normal">285</span>
+<span class="normal">286</span>
+<span class="normal">287</span>
+<span class="normal">288</span>
+<span class="normal">289</span>
+<span class="normal">290</span>
+<span class="normal">291</span>
+<span class="normal">292</span>
+<span class="normal">293</span>
+<span class="normal">294</span>
+<span class="normal">295</span>
+<span class="normal">296</span>
+<span class="normal">297</span>
+<span class="normal">298</span>
+<span class="normal">299</span>
+<span class="normal">300</span>
+<span class="normal">301</span>
+<span class="normal">302</span>
+<span class="normal">303</span>
+<span class="normal">304</span>
+<span class="normal">305</span>
+<span class="normal">306</span>
+<span class="normal">307</span>
+<span class="normal">308</span>
+<span class="normal">309</span>
+<span class="normal">310</span>
+<span class="normal">311</span>
+<span class="normal">312</span>
+<span class="normal">313</span>
+<span class="normal">314</span>
+<span class="normal">315</span>
+<span class="normal">316</span>
+<span class="normal">317</span>
+<span class="normal">318</span>
+<span class="normal">319</span>
+<span class="normal">320</span>
+<span class="normal">321</span>
+<span class="normal">322</span>
+<span class="normal">323</span>
+<span class="normal">324</span>
+<span class="normal">325</span>
+<span class="normal">326</span>
+<span class="normal">327</span>
+<span class="normal">328</span>
+<span class="normal">329</span>
+<span class="normal">330</span>
+<span class="normal">331</span>
+<span class="normal">332</span>
+<span class="normal">333</span>
+<span class="normal">334</span>
+<span class="normal">335</span>
+<span class="normal">336</span>
+<span class="normal">337</span>
+<span class="normal">338</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_single_arf_and_spectrum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
+                                 <span class="n">bin_number</span><span class="p">,</span>
+                                 <span class="n">spectra_path</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a spectrum and arf for a given bin number.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        bin_number (int): Bin number in the binning object</span>
+<span class="sd">        spectra_path (str): Where to save the ARF, event file and spectrum that have been created</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">pixels_in_region</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">binning</span><span class="o">.</span><span class="n">binning_dict</span><span class="p">[</span><span class="n">bin_number</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">interpolated_vignet</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">E_arf</span><span class="p">)</span>
+    <span class="n">counts_tot</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">pixels_in_region</span><span class="p">)):</span>
+
+        <span class="c1"># Real pixel number</span>
+        <span class="n">pix_num</span><span class="o">=</span><span class="n">pixels_in_region</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> 
+
+
+        <span class="c1">#Compute theta</span>
+        <span class="n">theta_pix</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">evt_theta</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">evt_data</span><span class="p">[</span><span class="s1">&#39;PIXID&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">pix_num</span><span class="p">])</span>
+
+        <span class="c1"># Weight with counts</span>
+        <span class="n">counts_in_band</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">evt_data</span><span class="p">[</span><span class="s1">&#39;PIXID&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">pix_num</span><span class="p">)</span>
+        <span class="n">counts_tot</span> <span class="o">+=</span> <span class="n">counts_in_band</span>
+
+        <span class="c1"># Broadcast interpolation on axis of energies</span>
+        <span class="n">func_to_vmap</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">vignet_pt</span> <span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">theta_pix</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">theta</span><span class="p">,</span> <span class="n">vignet_pt</span><span class="p">)</span> 
+        <span class="n">vmapped_interp</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">vmap</span><span class="p">(</span><span class="n">func_to_vmap</span><span class="p">)</span>
+        <span class="n">interpolated_vignet</span> <span class="o">+=</span> <span class="n">vmapped_interp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vign_on_arf_bins</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">*</span> <span class="n">counts_in_band</span> 
+
+    <span class="n">interpolated_vignet</span> <span class="o">/=</span> <span class="n">counts_tot</span>
+
+    <span class="c1"># Load and save modified ARF</span>
+    <span class="n">hdu_arf</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">arf_file_path</span><span class="p">)</span>
+    <span class="n">hdu_arf</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;SPECRESP&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">arf_specresp</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">interpolated_vignet</span><span class="p">)</span>
+    <span class="n">hdu_arf</span><span class="o">.</span><span class="n">writeto</span><span class="p">(</span><span class="n">spectra_path</span> <span class="o">+</span> <span class="s1">&#39;spec_</span><span class="si">{}</span><span class="s1">.arf&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bin_number</span><span class="p">),</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Load and save modified event</span>
+    <span class="n">hdu_evt</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">event_file_path</span><span class="p">)</span>
+    <span class="n">hdu_evt</span><span class="p">[</span><span class="s1">&#39;EVENTS&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">[</span><span class="s1">&#39;ANCRFILE&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">spectra_path</span> <span class="o">+</span> <span class="s1">&#39;/spec_</span><span class="si">{}</span><span class="s1">.arf&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bin_number</span><span class="p">)</span>
+    <span class="n">hdu_evt</span><span class="p">[</span><span class="s1">&#39;EVENTS&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">[</span><span class="s1">&#39;RESPFILE&#39;</span><span class="p">]</span><span class="o">=</span> <span class="s1">&#39;/xifu/home/mola/XIFU_Sims_Turbulence_NewConfig/RMF.rmf&#39;</span>
+
+    <span class="n">hdu_evt</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">evt_data</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">evt_data</span><span class="p">[</span><span class="s1">&#39;PIXID&#39;</span><span class="p">],</span>
+                                                 <span class="n">pixels_in_region</span><span class="p">)]</span>
+
+    <span class="n">evt_filename</span> <span class="o">=</span> <span class="n">spectra_path</span> <span class="o">+</span> <span class="s1">&#39;/spec_</span><span class="si">{}</span><span class="s1">.evt&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bin_number</span><span class="p">)</span>
+    <span class="n">hdu_evt</span><span class="o">.</span><span class="n">writeto</span><span class="p">(</span><span class="n">evt_filename</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1">#Make spectrum using makespec</span>
+    <span class="n">pha_filename</span> <span class="o">=</span> <span class="n">evt_filename</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.evt&#39;</span><span class="p">,</span><span class="s1">&#39;.pha&#39;</span><span class="p">)</span>
+    <span class="n">arguments</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;makespec&quot;</span><span class="p">,</span>
+               <span class="s2">&quot;EvtFile=</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">evt_filename</span><span class="p">,</span>
+               <span class="s2">&quot;Spectrum=</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">pha_filename</span><span class="p">,</span>
+               <span class="s2">&quot;clobber=T&quot;</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Calling:&quot;</span><span class="p">,</span><span class="n">arguments</span><span class="p">)</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">check_call</span><span class="p">(</span><span class="n">arguments</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="kc">None</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="spectra.eval_quadratic_piecewise" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">eval_quadratic_piecewise</span><span class="p">(</span><span class="n">E_edges</span><span class="p">,</span> <span class="n">coeffs</span><span class="p">,</span> <span class="n">E_eval</span><span class="p">)</span></code>
+
+<a href="#spectra.eval_quadratic_piecewise" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Evaluates a quadratic function, given its coefficients as computed by quadratic_from_bin_averages.
+In each bin, the function is 
+<span class="arithmatex">\(<span class="arithmatex">\(f(x) = a x^2 + bx + c\)</span>\)</span></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>E_edges</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" title="numpy.array" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array">array</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Edges of the bins used for the computation of the coefficients</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>coeffs</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" title="numpy.array" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array">array</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Coefficients of the quadratic function</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>E_eval</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" title="numpy.array" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array">array</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Points at which to compute the quadratic function</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+            <details class="quote">
+              <summary>Source code in <code>src/xifu_cluster_sim/spectra.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">eval_quadratic_piecewise</span><span class="p">(</span><span class="n">E_edges</span><span class="p">,</span> <span class="n">coeffs</span><span class="p">,</span> <span class="n">E_eval</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Evaluates a quadratic function, given its coefficients as computed by quadratic_from_bin_averages.</span>
+<span class="sd">    In each bin, the function is </span>
+<span class="sd">    $$f(x) = a x^2 + bx + c$$</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        E_edges (np.array): Edges of the bins used for the computation of the coefficients</span>
+<span class="sd">        coeffs (np.array): Coefficients of the quadratic function</span>
+<span class="sd">        E_eval (np.array): Points at which to compute the quadratic function</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+
+    <span class="c1"># Make sure it&#39;s arrays</span>
+    <span class="n">E_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">E_edges</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">E_eval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">E_eval</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">E_eval</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+
+    <span class="c1"># For each coefficient</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">coeffs</span><span class="p">)):</span>
+        <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span> <span class="o">=</span> <span class="n">coeffs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">left</span> <span class="o">=</span> <span class="n">E_edges</span><span class="p">[</span><span class="n">i</span><span class="p">];</span> <span class="n">right</span> <span class="o">=</span> <span class="n">E_edges</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">E_eval</span> <span class="o">&gt;=</span> <span class="n">left</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">E_eval</span> <span class="o">&lt;=</span> <span class="n">right</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">mask</span><span class="p">):</span>
+            <span class="k">continue</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">E_eval</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">-</span> <span class="n">left</span>
+        <span class="n">vals</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">c</span>
+    <span class="n">vals</span><span class="p">[(</span><span class="n">E_eval</span> <span class="o">&lt;</span> <span class="n">E_edges</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">|</span> <span class="p">(</span><span class="n">E_eval</span> <span class="o">&gt;</span> <span class="n">E_edges</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+    <span class="k">return</span> <span class="n">vals</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
 
 <div class="doc doc-object doc-function">
 
@@ -790,11 +2175,88 @@
 
     <div class="doc doc-contents ">
 
-        <p>Build piecewise quadratic per bin with exact bin averages and C1 continuity.
-boundary: 'zero_slope', 'natural', or 'extrapolate'.
-  - 'zero_slope': enforce derivative = 0 at both ends
-  - 'natural'   : enforce second derivative = 0 at both ends (a_0 = a_last = 0)
-  - 'extrapolate': set right-end derivative from trend of last bins (left derivative = 0)</p>
+        <p>Build piecewise quadratic function per bin with exact bin averages and C1 continuity.
+This function is used to build a smooth function of vignetting that is not binned.
+It defines the right system of equations as a matrix multiplication and then solves it to obtain the coefficients of the quadratic function.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>E_edges</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" title="numpy.array" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array">array</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Edges of the bins at which the averages are computed</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>V_row</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" title="numpy.array" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array">array</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Average in each bin</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>boundary</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>'zero_slope', 'natural', or 'extrapolate'. 'zero_slope': enforce derivative = 0 at both ends. 'natural'   : enforce second derivative = 0 at both ends (a_0 = a_last = 0). 'extrapolate': set right-end derivative from trend of last bins (left derivative = 0)</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;natural&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>reg_eps</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Regularization term</p>
+              </div>
+            </td>
+            <td>
+                  <code>1e-12</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
 
 
             <details class="quote">
@@ -896,13 +2358,21 @@ boundary: 'zero_slope', 'natural', or 'extrapolate'.
 <span class="normal">115</span>
 <span class="normal">116</span>
 <span class="normal">117</span>
-<span class="normal">118</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">quadratic_from_bin_averages</span><span class="p">(</span><span class="n">E_edges</span><span class="p">,</span> <span class="n">V_row</span><span class="p">,</span> <span class="n">boundary</span><span class="o">=</span><span class="s1">&#39;natural&#39;</span><span class="p">,</span> <span class="n">reg_eps</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">):</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">quadratic_from_bin_averages</span><span class="p">(</span><span class="n">E_edges</span><span class="p">,</span> <span class="n">V_row</span><span class="p">,</span> <span class="n">boundary</span><span class="o">=</span><span class="s1">&#39;natural&#39;</span><span class="p">,</span> <span class="n">reg_eps</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Build piecewise quadratic per bin with exact bin averages and C1 continuity.</span>
-<span class="sd">    boundary: &#39;zero_slope&#39;, &#39;natural&#39;, or &#39;extrapolate&#39;.</span>
-<span class="sd">      - &#39;zero_slope&#39;: enforce derivative = 0 at both ends</span>
-<span class="sd">      - &#39;natural&#39;   : enforce second derivative = 0 at both ends (a_0 = a_last = 0)</span>
-<span class="sd">      - &#39;extrapolate&#39;: set right-end derivative from trend of last bins (left derivative = 0)</span>
+<span class="sd">    Build piecewise quadratic function per bin with exact bin averages and C1 continuity.</span>
+<span class="sd">    This function is used to build a smooth function of vignetting that is not binned.</span>
+<span class="sd">    It defines the right system of equations as a matrix multiplication and then solves it to obtain the coefficients of the quadratic function.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        E_edges (np.array): Edges of the bins at which the averages are computed</span>
+<span class="sd">        V_row (np.array): Average in each bin</span>
+<span class="sd">        boundary (str): &#39;zero_slope&#39;, &#39;natural&#39;, or &#39;extrapolate&#39;. &#39;zero_slope&#39;: enforce derivative = 0 at both ends. &#39;natural&#39;   : enforce second derivative = 0 at both ends (a_0 = a_last = 0). &#39;extrapolate&#39;: set right-end derivative from trend of last bins (left derivative = 0)</span>
+<span class="sd">        reg_eps (float): Regularization term</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">E_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">E_edges</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
     <span class="n">V_row</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">V_row</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
@@ -917,14 +2387,14 @@ boundary: 'zero_slope', 'natural', or 'extrapolate'.
     <span class="k">def</span><span class="w"> </span><span class="nf">avg_basis</span><span class="p">(</span><span class="n">Δ</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">Δ</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="mf">3.0</span><span class="p">,</span> <span class="n">Δ</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
 
-    <span class="c1"># 1) bin-average constraints</span>
+    <span class="c1"># bin-average constraints</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_bins</span><span class="p">):</span>
         <span class="n">Ei</span> <span class="o">=</span> <span class="n">E_edges</span><span class="p">[</span><span class="n">i</span><span class="p">];</span> <span class="n">Ej</span> <span class="o">=</span> <span class="n">E_edges</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span> <span class="n">Δ</span> <span class="o">=</span> <span class="n">Ej</span> <span class="o">-</span> <span class="n">Ei</span>
         <span class="n">A</span><span class="p">[</span><span class="n">row_idx</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">i</span><span class="p">:</span><span class="mi">3</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">avg_basis</span><span class="p">(</span><span class="n">Δ</span><span class="p">)</span>
         <span class="n">rhs</span><span class="p">[</span><span class="n">row_idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">V_row</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
         <span class="n">row_idx</span> <span class="o">+=</span> <span class="mi">1</span>
 
-    <span class="c1"># 2) continuity constraints (value + slope) between bins</span>
+    <span class="c1"># continuity constraints (value + slope) between bins</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_bins</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
         <span class="n">Ei</span> <span class="o">=</span> <span class="n">E_edges</span><span class="p">[</span><span class="n">i</span><span class="p">];</span> <span class="n">Ej</span> <span class="o">=</span> <span class="n">E_edges</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span> <span class="n">Δ</span> <span class="o">=</span> <span class="n">Ej</span> <span class="o">-</span> <span class="n">Ei</span>
         <span class="c1"># value continuity: a_i*Δ^2 + b_i*Δ + c_i - c_{i+1} = 0</span>
@@ -938,7 +2408,7 @@ boundary: 'zero_slope', 'natural', or 'extrapolate'.
         <span class="n">rhs</span><span class="p">[</span><span class="n">row_idx</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
         <span class="n">row_idx</span> <span class="o">+=</span> <span class="mi">1</span>
 
-    <span class="c1"># 3) boundary conditions</span>
+    <span class="c1"># boundary conditions</span>
     <span class="k">if</span> <span class="n">boundary</span> <span class="o">==</span> <span class="s1">&#39;zero_slope&#39;</span><span class="p">:</span>
         <span class="c1"># left derivative b_0 = 0</span>
         <span class="n">A</span><span class="p">[</span><span class="n">row_idx</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>

@@ -808,8 +808,7 @@
 
     <div class="doc doc-contents ">
 
-        <p>Function to launch one SIXTE process per core 
-using the photon lists generated for a cluster sim.
+        <p>Function to launch one SIXTE process per core using the photon lists generated for a cluster sim.
 Will overwrite existing event files.<br />
 Matches the syntax used in SIXTE 3.0.5</p>
 
@@ -834,7 +833,7 @@ Matches the syntax used in SIXTE 3.0.5</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>number of processes to run </p>
+                <p>Number of processes to run </p>
               </div>
             </td>
             <td>
@@ -850,7 +849,7 @@ Matches the syntax used in SIXTE 3.0.5</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>directory in which to save the resulting ph lists</p>
+                <p>Directory in which to look for the photon lists</p>
               </div>
             </td>
             <td>
@@ -866,7 +865,7 @@ Matches the syntax used in SIXTE 3.0.5</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>prefix to use for the simput file names</p>
+                <p>Prefix to use for the simput file names</p>
               </div>
             </td>
             <td>
@@ -882,27 +881,11 @@ Matches the syntax used in SIXTE 3.0.5</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>prefix to use for the event file names</p>
+                <p>Prefix to use for the event file names</p>
               </div>
             </td>
             <td>
                   <code>&#39;event_list&#39;</code>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                <code>clobber</code>
-            </td>
-            <td>
-                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>standard FITS clobber option</p>
-              </div>
-            </td>
-            <td>
-                <em>required</em>
             </td>
           </tr>
           <tr class="doc-section-item">
@@ -914,11 +897,43 @@ Matches the syntax used in SIXTE 3.0.5</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>exposure to use for the photon generation</p>
+                <p>Exposure to use for the photon generation</p>
               </div>
             </td>
             <td>
                   <code>100000.0</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>ra</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Right ascension of the pointing</p>
+              </div>
+            </td>
+            <td>
+                  <code>0.0</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>dec</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Declination of the pointing</p>
+              </div>
+            </td>
+            <td>
+                  <code>0.0</code>
             </td>
           </tr>
           <tr class="doc-section-item">
@@ -930,7 +945,7 @@ Matches the syntax used in SIXTE 3.0.5</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>standard XML file to use for the simulations</p>
+                <p>Standard XML file to use for the simulations</p>
               </div>
             </td>
             <td>
@@ -946,7 +961,7 @@ Matches the syntax used in SIXTE 3.0.5</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>option to include NXB</p>
+                <p>Option to include NXB</p>
               </div>
             </td>
             <td>
@@ -962,7 +977,7 @@ Matches the syntax used in SIXTE 3.0.5</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>path to simput file with astrophysical background</p>
+                <p>Path to simput file with astrophysical background</p>
               </div>
             </td>
             <td>
@@ -978,7 +993,7 @@ Matches the syntax used in SIXTE 3.0.5</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>path to simout file with cosmic AGNs</p>
+                <p>Path to simout file with cosmic AGNs</p>
               </div>
             </td>
             <td>
@@ -1158,32 +1173,32 @@ Matches the syntax used in SIXTE 3.0.5</p>
 <span class="normal">172</span>
 <span class="normal">173</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">run_sixte_sim_multiproc</span><span class="p">(</span><span class="n">numproc</span><span class="p">,</span>
                             <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/xifu/home/mola/xifu_cluster_sim/clusters/obs5_reproduction/&#39;</span><span class="p">,</span>
-                            <span class="n">ph_list_prefix</span><span class="o">=</span><span class="s2">&quot;ph_list&quot;</span><span class="p">,</span>
-                            <span class="n">evt_file_prefix</span><span class="o">=</span><span class="s1">&#39;event_list&#39;</span><span class="p">,</span>
-                            <span class="n">exposure</span><span class="o">=</span><span class="mf">1e5</span><span class="p">,</span>
-                            <span class="n">ra</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span>
-                            <span class="n">dec</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span>
-                            <span class="n">std_xmlfile</span><span class="o">=</span><span class="s1">&#39;/data/xifu/usr/SIXTE/share/sixte/instruments/athena/xifudev/xifu_baseline.xml&#39;</span><span class="p">,</span>
-                            <span class="n">astro_bkg_simput</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
-                            <span class="n">cosmic_bkg_simput</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
-                            <span class="n">background</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+                            <span class="n">ph_list_prefix</span> <span class="o">=</span><span class="s2">&quot;ph_list&quot;</span><span class="p">,</span>
+                            <span class="n">evt_file_prefix</span> <span class="o">=</span><span class="s1">&#39;event_list&#39;</span><span class="p">,</span>
+                            <span class="n">exposure</span> <span class="o">=</span> <span class="mf">1e5</span><span class="p">,</span>
+                            <span class="n">ra</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">,</span>
+                            <span class="n">dec</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">,</span>
+                            <span class="n">std_xmlfile</span> <span class="o">=</span> <span class="s1">&#39;/data/xifu/usr/SIXTE/share/sixte/instruments/athena/xifudev/xifu_baseline.xml&#39;</span><span class="p">,</span>
+                            <span class="n">astro_bkg_simput</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
+                            <span class="n">cosmic_bkg_simput</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
+                            <span class="n">background</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Function to launch one SIXTE process per core </span>
-<span class="sd">    using the photon lists generated for a cluster sim.</span>
+<span class="sd">    Function to launch one SIXTE process per core using the photon lists generated for a cluster sim.</span>
 <span class="sd">    Will overwrite existing event files.  </span>
 <span class="sd">    Matches the syntax used in SIXTE 3.0.5</span>
 
 <span class="sd">    Parameters:</span>
-<span class="sd">        numproc (int): number of processes to run </span>
-<span class="sd">        path (str): directory in which to save the resulting ph lists</span>
-<span class="sd">        ph_list_prefix (str): prefix to use for the simput file names</span>
-<span class="sd">        evt_file_prefix (str): prefix to use for the event file names</span>
-<span class="sd">        clobber (bool): standard FITS clobber option</span>
-<span class="sd">        exposure (float): exposure to use for the photon generation</span>
-<span class="sd">        std_xmlfile (str): standard XML file to use for the simulations</span>
-<span class="sd">        background (bool): option to include NXB</span>
-<span class="sd">        astro_bkg_simput (str): path to simput file with astrophysical background</span>
-<span class="sd">        cosmic_bkg_simput (str): path to simout file with cosmic AGNs</span>
+<span class="sd">        numproc (int): Number of processes to run </span>
+<span class="sd">        path (str): Directory in which to look for the photon lists</span>
+<span class="sd">        ph_list_prefix (str): Prefix to use for the simput file names</span>
+<span class="sd">        evt_file_prefix (str): Prefix to use for the event file names</span>
+<span class="sd">        exposure (float): Exposure to use for the photon generation</span>
+<span class="sd">        ra (float): Right ascension of the pointing</span>
+<span class="sd">        dec (float): Declination of the pointing</span>
+<span class="sd">        std_xmlfile (str): Standard XML file to use for the simulations</span>
+<span class="sd">        background (bool): Option to include NXB</span>
+<span class="sd">        astro_bkg_simput (str): Path to simput file with astrophysical background</span>
+<span class="sd">        cosmic_bkg_simput (str): Path to simout file with cosmic AGNs</span>
 <span class="sd">    &#39;&#39;&#39;</span>   
 
     <span class="n">list_w</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1381,7 +1396,7 @@ Matches the syntax used in SIXTE 3.0.5</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>directory in which to save the resulting ph lists</p>
+                <p>Directory in which to look for the photon lists</p>
               </div>
             </td>
             <td>
@@ -1397,7 +1412,7 @@ Matches the syntax used in SIXTE 3.0.5</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>prefix to use for the simput file names</p>
+                <p>Prefix to use for the simput file names</p>
               </div>
             </td>
             <td>
@@ -1413,27 +1428,11 @@ Matches the syntax used in SIXTE 3.0.5</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>prefix to use for the event file names</p>
+                <p>Prefix to use for the event file names</p>
               </div>
             </td>
             <td>
                   <code>&#39;evt_list&#39;</code>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                <code>clobber</code>
-            </td>
-            <td>
-                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>standard FITS clobber option</p>
-              </div>
-            </td>
-            <td>
-                <em>required</em>
             </td>
           </tr>
           <tr class="doc-section-item">
@@ -1445,11 +1444,43 @@ Matches the syntax used in SIXTE 3.0.5</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>exposure to use for the photon generation</p>
+                <p>Exposure to use for the photon generation</p>
               </div>
             </td>
             <td>
                   <code>100000.0</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>ra</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Right ascension of the pointing</p>
+              </div>
+            </td>
+            <td>
+                  <code>0.0</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>dec</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Declination of the pointing</p>
+              </div>
+            </td>
+            <td>
+                  <code>0.0</code>
             </td>
           </tr>
           <tr class="doc-section-item">
@@ -1461,7 +1492,7 @@ Matches the syntax used in SIXTE 3.0.5</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>standard XML file to use for the simulations</p>
+                <p>Standard XML file to use for the simulations</p>
               </div>
             </td>
             <td>
@@ -1477,7 +1508,7 @@ Matches the syntax used in SIXTE 3.0.5</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>option to include NXB</p>
+                <p>Option to include NXB</p>
               </div>
             </td>
             <td>
@@ -1493,7 +1524,7 @@ Matches the syntax used in SIXTE 3.0.5</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>path to simput file with astrophysical background</p>
+                <p>Path to simput file with astrophysical background</p>
               </div>
             </td>
             <td>
@@ -1509,7 +1540,7 @@ Matches the syntax used in SIXTE 3.0.5</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>path to simout file with cosmic AGNs</p>
+                <p>Path to simout file with cosmic AGNs</p>
               </div>
             </td>
             <td>
@@ -1616,7 +1647,8 @@ Matches the syntax used in SIXTE 3.0.5</p>
 <span class="normal">266</span>
 <span class="normal">267</span>
 <span class="normal">268</span>
-<span class="normal">269</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">run_sixte_sim_notebook</span><span class="p">(</span><span class="n">nparts</span><span class="p">,</span>
+<span class="normal">269</span>
+<span class="normal">270</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">run_sixte_sim_notebook</span><span class="p">(</span><span class="n">nparts</span><span class="p">,</span>
                         <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/xifu/home/mola/xifu_cluster_sim/clusters/obs5_reproduction/&#39;</span><span class="p">,</span>
                         <span class="n">ph_list_prefix</span><span class="o">=</span><span class="s2">&quot;ph_list&quot;</span><span class="p">,</span>
                         <span class="n">evt_file_prefix</span><span class="o">=</span><span class="s1">&#39;evt_list&#39;</span><span class="p">,</span>
@@ -1635,15 +1667,16 @@ Matches the syntax used in SIXTE 3.0.5</p>
 
 <span class="sd">    Parameters:</span>
 <span class="sd">        nparts (int): number of parts of photon lists</span>
-<span class="sd">        path (str): directory in which to save the resulting ph lists</span>
-<span class="sd">        ph_list_prefix (str): prefix to use for the simput file names</span>
-<span class="sd">        evt_file_prefix (str): prefix to use for the event file names</span>
-<span class="sd">        clobber (bool): standard FITS clobber option</span>
-<span class="sd">        exposure (float): exposure to use for the photon generation</span>
-<span class="sd">        std_xmlfile (str): standard XML file to use for the simulations</span>
-<span class="sd">        background (bool): option to include NXB</span>
-<span class="sd">        astro_bkg_simput (str): path to simput file with astrophysical background</span>
-<span class="sd">        cosmic_bkg_simput (str): path to simout file with cosmic AGNs</span>
+<span class="sd">        path (str): Directory in which to look for the photon lists</span>
+<span class="sd">        ph_list_prefix (str): Prefix to use for the simput file names</span>
+<span class="sd">        evt_file_prefix (str): Prefix to use for the event file names</span>
+<span class="sd">        exposure (float): Exposure to use for the photon generation</span>
+<span class="sd">        ra (float): Right ascension of the pointing</span>
+<span class="sd">        dec (float): Declination of the pointing</span>
+<span class="sd">        std_xmlfile (str): Standard XML file to use for the simulations</span>
+<span class="sd">        background (bool): Option to include NXB</span>
+<span class="sd">        astro_bkg_simput (str): Path to simput file with astrophysical background</span>
+<span class="sd">        cosmic_bkg_simput (str): Path to simout file with cosmic AGNs</span>
 <span class="sd">    &#39;&#39;&#39;</span>
 
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nparts</span><span class="p">):</span>
