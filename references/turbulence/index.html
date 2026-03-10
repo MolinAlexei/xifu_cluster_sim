@@ -649,6 +649,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#turbulence.KolmogorovPowerSpectrum.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;__init__
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -751,6 +760,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#turbulence.KolmogorovPowerSpectrum.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;__init__
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -822,7 +840,8 @@
     <div class="doc doc-contents ">
 
 
-        <p>Kolmogorov power spectrum</p>
+        <p>Kolmogorov power spectrum
+<span class="arithmatex">\(<span class="arithmatex">\(\mathcal{P}_{3D}(k)= \sigma^2 \frac{e^{-\left(k/k_{\text{inj}}\right)^2} e^{-\left(k_{\text{dis}}/k\right)^2} k^{-\alpha} }{\int 4\pi k^2  \, e^{-\left(k/k_{\text{inj}}\right)^2} e^{-\left(k_{\text{dis}}/k\right)^2} k^{-\alpha} \text{d} k}\)</span>\)</span></p>
 
 
 
@@ -877,9 +896,33 @@
 <span class="normal">48</span>
 <span class="normal">49</span>
 <span class="normal">50</span>
-<span class="normal">51</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">KolmogorovPowerSpectrum</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">KolmogorovPowerSpectrum</span><span class="p">:</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Kolmogorov power spectrum</span>
+<span class="sd">    $$\mathcal{P}_{3D}(k)= \sigma^2 \frac{e^{-\left(k/k_{\text{inj}}\right)^2} e^{-\left(k_{\text{dis}}/k\right)^2} k^{-\alpha} }{\int 4\pi k^2  \, e^{-\left(k/k_{\text{inj}}\right)^2} e^{-\left(k_{\text{dis}}/k\right)^2} k^{-\alpha} \text{d} k}$$</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
@@ -887,16 +930,36 @@
                  <span class="n">inj_scale</span> <span class="o">=</span> <span class="mf">300.</span><span class="p">,</span>
                  <span class="n">dis_scale</span> <span class="o">=</span> <span class="mf">1e-3</span><span class="p">,</span>
                  <span class="n">alpha</span> <span class="o">=</span> <span class="mi">11</span><span class="o">/</span><span class="mi">3</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize parameters of the power spectrum</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            sigma (float): Norm of the power spectrum</span>
+<span class="sd">            inj_scale (float): Injection scale</span>
+<span class="sd">            dis_scale (float): Dissipation scale</span>
+<span class="sd">            alpha (float): Slope</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sigma</span> <span class="o">=</span> <span class="n">sigma</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">inj_scale</span> <span class="o">=</span> <span class="n">inj_scale</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dis_scale</span> <span class="o">=</span> <span class="n">dis_scale</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="n">alpha</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">k_max</span><span class="p">):</span>
-<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Kolmogorov power spectrum</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Computes the Kolmogorov power spectrum over k. </span>
+<span class="sd">        When this power spectrum is used to represent a gaussian random field on a discrete grid, if the dissipation scale is smaller</span>
+<span class="sd">        than the smallest scale available, some power is not represented on the grid.</span>
+<span class="sd">        This power is :</span>
+<span class="sd">        $$\mathcal{P}_{3D}(k)= \sigma^2 \int_{k_\mathrm{max}}^{\infty} 4\pi k^2  P(k) \text{d} k$$</span>
+<span class="sd">        It is also computed and returned.</span>
 
-<span class="sd">        $$\mathcal{P}_{3D}(k)= \sigma^2 \frac{e^{-\left(k/k_{\text{inj}}\right)^2} e^{-\left(k_{\text{dis}}/k\right)^2} k^{-\alpha} }{\int 4\pi k^2  \, e^{-\left(k/k_{\text{inj}}\right)^2} e^{-\left(k_{\text{dis}}/k\right)^2} k^{-\alpha} \text{d} k}$$</span>
+<span class="sd">        Parameters:</span>
+<span class="sd">            k (float or array-like): Wavenumber</span>
+<span class="sd">            k_max (float): Maximum wavenumber represented on grid </span>
 
+<span class="sd">        Returns:</span>
+<span class="sd">            p_k (float or array-like): Power spectrum</span>
+<span class="sd">            factor (float): Integral of power spectrum from k_max to infinity.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
 
@@ -949,24 +1012,97 @@
 
     <div class="doc doc-contents ">
 
-        <p>Kolmogorov power spectrum</p>
-<div class="arithmatex">\[\mathcal{P}_{3D}(k)= \sigma^2 \frac{e^{-\left(k/k_{\text{inj}}\right)^2} e^{-\left(k_{\text{dis}}/k\right)^2} k^{-\alpha} }{\int 4\pi k^2  \, e^{-\left(k/k_{\text{inj}}\right)^2} e^{-\left(k_{\text{dis}}/k\right)^2} k^{-\alpha} \text{d} k}\]</div>
+        <p>Computes the Kolmogorov power spectrum over k. 
+When this power spectrum is used to represent a gaussian random field on a discrete grid, if the dissipation scale is smaller
+than the smallest scale available, some power is not represented on the grid.
+This power is :
+<span class="arithmatex">\(<span class="arithmatex">\(\mathcal{P}_{3D}(k)= \sigma^2 \int_{k_\mathrm{max}}^{\infty} 4\pi k^2  P(k)   ext{d} k\)</span>\)</span>
+It is also computed and returned.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>k</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a> or <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/array.html#module-array">array</a> - <span title="like">like</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Wavenumber</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>k_max</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Maximum wavenumber represented on grid </p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>p_k</code></td>            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a> or <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/array.html#module-array">array</a> - <span title="like">like</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Power spectrum</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+<td><code>factor</code></td>            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Integral of power spectrum from k_max to infinity.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
 
 
             <details class="quote">
               <summary>Source code in <code>src/xifu_cluster_sim/turbulence.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">32</span>
 <span class="normal">33</span>
 <span class="normal">34</span>
 <span class="normal">35</span>
@@ -985,11 +1121,44 @@
 <span class="normal">48</span>
 <span class="normal">49</span>
 <span class="normal">50</span>
-<span class="normal">51</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">k_max</span><span class="p">):</span>
-<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Kolmogorov power spectrum</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">k_max</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Computes the Kolmogorov power spectrum over k. </span>
+<span class="sd">    When this power spectrum is used to represent a gaussian random field on a discrete grid, if the dissipation scale is smaller</span>
+<span class="sd">    than the smallest scale available, some power is not represented on the grid.</span>
+<span class="sd">    This power is :</span>
+<span class="sd">    $$\mathcal{P}_{3D}(k)= \sigma^2 \int_{k_\mathrm{max}}^{\infty} 4\pi k^2  P(k) \text{d} k$$</span>
+<span class="sd">    It is also computed and returned.</span>
 
-<span class="sd">    $$\mathcal{P}_{3D}(k)= \sigma^2 \frac{e^{-\left(k/k_{\text{inj}}\right)^2} e^{-\left(k_{\text{dis}}/k\right)^2} k^{-\alpha} }{\int 4\pi k^2  \, e^{-\left(k/k_{\text{inj}}\right)^2} e^{-\left(k_{\text{dis}}/k\right)^2} k^{-\alpha} \text{d} k}$$</span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        k (float or array-like): Wavenumber</span>
+<span class="sd">        k_max (float): Maximum wavenumber represented on grid </span>
 
+<span class="sd">    Returns:</span>
+<span class="sd">        p_k (float or array-like): Power spectrum</span>
+<span class="sd">        factor (float): Integral of power spectrum from k_max to infinity.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
 
@@ -1016,6 +1185,142 @@
                       <span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span>
 
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">res</span> <span class="o">/</span> <span class="n">norm</span><span class="p">,</span> <span class="n">factor</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="turbulence.KolmogorovPowerSpectrum.__init__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">sigma</span><span class="o">=</span><span class="mf">250.0</span><span class="p">,</span> <span class="n">inj_scale</span><span class="o">=</span><span class="mf">300.0</span><span class="p">,</span> <span class="n">dis_scale</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">11</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span></code>
+
+<a href="#turbulence.KolmogorovPowerSpectrum.__init__" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Initialize parameters of the power spectrum</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>sigma</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Norm of the power spectrum</p>
+              </div>
+            </td>
+            <td>
+                  <code>250.0</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>inj_scale</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Injection scale</p>
+              </div>
+            </td>
+            <td>
+                  <code>300.0</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>dis_scale</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Dissipation scale</p>
+              </div>
+            </td>
+            <td>
+                  <code>0.001</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>alpha</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Slope</p>
+              </div>
+            </td>
+            <td>
+                  <code>11 / 3</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+            <details class="quote">
+              <summary>Source code in <code>src/xifu_cluster_sim/turbulence.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
+             <span class="n">sigma</span> <span class="o">=</span> <span class="mf">250.</span><span class="p">,</span> 
+             <span class="n">inj_scale</span> <span class="o">=</span> <span class="mf">300.</span><span class="p">,</span>
+             <span class="n">dis_scale</span> <span class="o">=</span> <span class="mf">1e-3</span><span class="p">,</span>
+             <span class="n">alpha</span> <span class="o">=</span> <span class="mi">11</span><span class="o">/</span><span class="mi">3</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Initialize parameters of the power spectrum</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        sigma (float): Norm of the power spectrum</span>
+<span class="sd">        inj_scale (float): Injection scale</span>
+<span class="sd">        dis_scale (float): Dissipation scale</span>
+<span class="sd">        alpha (float): Slope</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">sigma</span> <span class="o">=</span> <span class="n">sigma</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">inj_scale</span> <span class="o">=</span> <span class="n">inj_scale</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">dis_scale</span> <span class="o">=</span> <span class="n">dis_scale</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="n">alpha</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
