@@ -1344,7 +1344,8 @@
 <span class="normal">371</span>
 <span class="normal">372</span>
 <span class="normal">373</span>
-<span class="normal">374</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ClusterCube</span><span class="p">:</span>
+<span class="normal">374</span>
+<span class="normal">375</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ClusterCube</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Define a cube containing all the properties of the simulated cluster</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1453,7 +1454,10 @@
 
 <span class="sd">        Parameters:</span>
 <span class="sd">            M500 (float): Characteristic mass of cluster</span>
+<span class="sd">            T0 (float): Normalization factor</span>
 <span class="sd">            rcool (float): Shape radius 1 in units of R/R500</span>
+<span class="sd">            rt (float): Shaped radius 2 in units of R/R500</span>
+<span class="sd">            acool (float) $$a_\mathrm{cool}$$</span>
 
 <span class="sd">        Returns:</span>
 
@@ -1473,13 +1477,11 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">kT_cube</span> <span class="o">=</span> <span class="n">T_500</span> <span class="o">*</span> <span class="n">T0</span> <span class="o">*</span> <span class="n">term1</span> <span class="o">/</span> <span class="n">term2</span> <span class="o">*</span> <span class="n">jnp</span><span class="o">.</span><span class="n">heaviside</span><span class="p">(</span><span class="mf">5.</span> <span class="o">-</span> <span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">create_Z_cube</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compute the abundance function for a given radius, following Mernier et al 2017.</span>
-<span class="sd">        All parameters are fixed.</span>
+<span class="sd">        All parameters are fixed. It is clipped to 0 after 5 R_500.</span>
 
-<span class="sd">        Parameters:</span>
-
-<span class="sd">        Returns:</span>
+<span class="sd">        $$Z(x) = 0.21 (x + 0.021)^{-0.48} - 6.54 e^{-\frac{(x+0.0816)^2}{0.0027}}$$</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
 
@@ -1488,7 +1490,7 @@
 
 
     <span class="k">def</span><span class="w"> </span><span class="nf">create_norm_cube</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compute the norm for the xspec apec model</span>
 
 <span class="sd">        $$\text{norm} = \frac{1}{4 \pi (D_A(1+z))^2 \int n_e n_H dV}$$</span>
@@ -1552,11 +1554,11 @@
 <span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Converts velocity to redshift following :</span>
 
-<span class="sd">        $$z_mathrm{turb} = \sqrt{\frac{c + v}{c - v} - 1$$</span>
+<span class="sd">        $$z_\mathrm{turb} = \sqrt{\frac{c + v}{c - v}} - 1$$</span>
 
 <span class="sd">        And </span>
 
-<span class="sd">        $$z_\mathrm{tot} = (1+z_mathrm{turb})(1+z_mathrm{cluster})$$</span>
+<span class="sd">        $$z_\mathrm{tot} = (1+z_\mathrm{turb})(1+z_\mathrm{cluster})$$</span>
 
 
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1981,15 +1983,14 @@
     <div class="doc doc-contents ">
 
         <p>Converts velocity to redshift following :</p>
-<div class="arithmatex">\[z_mathrm{turb} = \sqrt{\frac{c + v}{c - v} - 1\]</div>
+<div class="arithmatex">\[z_\mathrm{turb} = \sqrt{\frac{c + v}{c - v}} - 1\]</div>
 <p>And </p>
-<div class="arithmatex">\[z_\mathrm{tot} = (1+z_mathrm{turb})(1+z_mathrm{cluster})\]</div>
+<div class="arithmatex">\[z_\mathrm{tot} = (1+z_\mathrm{turb})(1+z_\mathrm{cluster})\]</div>
 
 
             <details class="quote">
               <summary>Source code in <code>src/xifu_cluster_sim/cluster_cube.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">227</span>
-<span class="normal">228</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">228</span>
 <span class="normal">229</span>
 <span class="normal">230</span>
 <span class="normal">231</span>
@@ -2004,16 +2005,17 @@
 <span class="normal">240</span>
 <span class="normal">241</span>
 <span class="normal">242</span>
-<span class="normal">243</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">convert_velocity_to_redshift</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="normal">243</span>
+<span class="normal">244</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">convert_velocity_to_redshift</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Converts velocity to redshift following :</span>
 
-<span class="sd">    $$z_mathrm{turb} = \sqrt{\frac{c + v}{c - v} - 1$$</span>
+<span class="sd">    $$z_\mathrm{turb} = \sqrt{\frac{c + v}{c - v}} - 1$$</span>
 
 <span class="sd">    And </span>
 
-<span class="sd">    $$z_\mathrm{tot} = (1+z_mathrm{turb})(1+z_mathrm{cluster})$$</span>
+<span class="sd">    $$z_\mathrm{tot} = (1+z_\mathrm{turb})(1+z_\mathrm{cluster})$$</span>
 
 
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -2039,17 +2041,13 @@
     <div class="doc doc-contents ">
 
         <p>Compute the abundance function for a given radius, following Mernier et al 2017.
-All parameters are fixed.</p>
-<p>Parameters:</p>
-<p>Returns:</p>
+All parameters are fixed. It is clipped to 0 after 5 R_500.</p>
+<div class="arithmatex">\[Z(x) = 0.21 (x + 0.021)^{-0.48} - 6.54 e^{-\frac{(x+0.0816)^2}{0.0027}}\]</div>
 
 
             <details class="quote">
               <summary>Source code in <code>src/xifu_cluster_sim/cluster_cube.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">152</span>
-<span class="normal">153</span>
-<span class="normal">154</span>
-<span class="normal">155</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">155</span>
 <span class="normal">156</span>
 <span class="normal">157</span>
 <span class="normal">158</span>
@@ -2058,14 +2056,13 @@ All parameters are fixed.</p>
 <span class="normal">161</span>
 <span class="normal">162</span>
 <span class="normal">163</span>
-<span class="normal">164</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">create_Z_cube</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="normal">164</span>
+<span class="normal">165</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">create_Z_cube</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the abundance function for a given radius, following Mernier et al 2017.</span>
-<span class="sd">    All parameters are fixed.</span>
+<span class="sd">    All parameters are fixed. It is clipped to 0 after 5 R_500.</span>
 
-<span class="sd">    Parameters:</span>
-
-<span class="sd">    Returns:</span>
+<span class="sd">    $$Z(x) = 0.21 (x + 0.021)^{-0.48} - 6.54 e^{-\frac{(x+0.0816)^2}{0.0027}}$$</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -2422,8 +2419,7 @@ All parameters are fixed.</p>
 
             <details class="quote">
               <summary>Source code in <code>src/xifu_cluster_sim/cluster_cube.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">277</span>
-<span class="normal">278</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">278</span>
 <span class="normal">279</span>
 <span class="normal">280</span>
 <span class="normal">281</span>
@@ -2519,7 +2515,8 @@ All parameters are fixed.</p>
 <span class="normal">371</span>
 <span class="normal">372</span>
 <span class="normal">373</span>
-<span class="normal">374</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">create_input_maps</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+<span class="normal">374</span>
+<span class="normal">375</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">create_input_maps</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                       <span class="n">binning</span><span class="p">,</span> 
                       <span class="n">PSF_kernel</span><span class="p">,</span>
                       <span class="n">save_maps</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -2667,6 +2664,22 @@ All parameters are fixed.</p>
           </tr>
           <tr class="doc-section-item">
             <td>
+                <code>T0</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Normalization factor</p>
+              </div>
+            </td>
+            <td>
+                  <code>1.09</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
                 <code>rcool</code>
             </td>
             <td>
@@ -2679,6 +2692,22 @@ All parameters are fixed.</p>
             </td>
             <td>
                   <code><span title="jax.numpy.exp">exp</span>(-4.4)</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>rt</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Shaped radius 2 in units of R/R500</p>
+              </div>
+            </td>
+            <td>
+                  <code>0.45</code>
             </td>
           </tr>
       </tbody>
@@ -2720,7 +2749,10 @@ All parameters are fixed.</p>
 <span class="normal">147</span>
 <span class="normal">148</span>
 <span class="normal">149</span>
-<span class="normal">150</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">create_kT_cube</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">create_kT_cube</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                    <span class="n">M500</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">,</span>
                    <span class="n">T0</span> <span class="o">=</span> <span class="mf">1.09</span><span class="p">,</span>
                    <span class="n">rcool</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">4.4</span><span class="p">),</span>
@@ -2735,7 +2767,10 @@ All parameters are fixed.</p>
 
 <span class="sd">    Parameters:</span>
 <span class="sd">        M500 (float): Characteristic mass of cluster</span>
+<span class="sd">        T0 (float): Normalization factor</span>
 <span class="sd">        rcool (float): Shape radius 1 in units of R/R500</span>
+<span class="sd">        rt (float): Shaped radius 2 in units of R/R500</span>
+<span class="sd">        acool (float) $$a_\mathrm{cool}$$</span>
 
 <span class="sd">    Returns:</span>
 
@@ -2771,13 +2806,12 @@ All parameters are fixed.</p>
     <div class="doc doc-contents ">
 
         <p>Compute the norm for the xspec apec model</p>
-<div class="arithmatex">\[      ext{norm} = rac{1}{4 \pi (D_A(1+z))^2 \int n_e n_H dV}\]</div>
+<div class="arithmatex">\[\text{norm} = \frac{1}{4 \pi (D_A(1+z))^2 \int n_e n_H dV}\]</div>
 
 
             <details class="quote">
               <summary>Source code in <code>src/xifu_cluster_sim/cluster_cube.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">167</span>
-<span class="normal">168</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">168</span>
 <span class="normal">169</span>
 <span class="normal">170</span>
 <span class="normal">171</span>
@@ -2790,8 +2824,9 @@ All parameters are fixed.</p>
 <span class="normal">178</span>
 <span class="normal">179</span>
 <span class="normal">180</span>
-<span class="normal">181</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">create_norm_cube</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="normal">181</span>
+<span class="normal">182</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">create_norm_cube</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the norm for the xspec apec model</span>
 
 <span class="sd">    $$\text{norm} = \frac{1}{4 \pi (D_A(1+z))^2 \int n_e n_H dV}$$</span>
@@ -2922,8 +2957,7 @@ All parameters are fixed.</p>
 
             <details class="quote">
               <summary>Source code in <code>src/xifu_cluster_sim/cluster_cube.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">183</span>
-<span class="normal">184</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">184</span>
 <span class="normal">185</span>
 <span class="normal">186</span>
 <span class="normal">187</span>
@@ -2964,7 +2998,8 @@ All parameters are fixed.</p>
 <span class="normal">222</span>
 <span class="normal">223</span>
 <span class="normal">224</span>
-<span class="normal">225</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">create_velocity_cube</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
+<span class="normal">225</span>
+<span class="normal">226</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">create_velocity_cube</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
                          <span class="n">rng_key</span><span class="p">,</span>
                          <span class="n">sigma</span> <span class="o">=</span> <span class="mf">250.</span><span class="p">,</span> 
                          <span class="n">inj_scale</span> <span class="o">=</span> <span class="mf">300.</span><span class="p">,</span>
@@ -3029,8 +3064,7 @@ All parameters are fixed.</p>
 
             <details class="quote">
               <summary>Source code in <code>src/xifu_cluster_sim/cluster_cube.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">264</span>
-<span class="normal">265</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">265</span>
 <span class="normal">266</span>
 <span class="normal">267</span>
 <span class="normal">268</span>
@@ -3040,7 +3074,8 @@ All parameters are fixed.</p>
 <span class="normal">272</span>
 <span class="normal">273</span>
 <span class="normal">274</span>
-<span class="normal">275</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">load_cube</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+<span class="normal">275</span>
+<span class="normal">276</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">load_cube</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Loads the cubes of computed value of the cluster</span>
 
@@ -3074,8 +3109,7 @@ All parameters are fixed.</p>
 
             <details class="quote">
               <summary>Source code in <code>src/xifu_cluster_sim/cluster_cube.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">246</span>
-<span class="normal">247</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">247</span>
 <span class="normal">248</span>
 <span class="normal">249</span>
 <span class="normal">250</span>
@@ -3090,7 +3124,8 @@ All parameters are fixed.</p>
 <span class="normal">259</span>
 <span class="normal">260</span>
 <span class="normal">261</span>
-<span class="normal">262</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">save_cube</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+<span class="normal">262</span>
+<span class="normal">263</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">save_cube</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Saves the cubes of computed value of the cluster</span>
 

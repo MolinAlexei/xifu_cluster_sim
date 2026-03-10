@@ -384,6 +384,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label=" LoadBinning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#binning.LoadBinning.__call__" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;__call__
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#binning.LoadBinning.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;__init__
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -395,6 +419,15 @@
   
     <nav class="md-nav" aria-label=" MakeBinning">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#binning.MakeBinning.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;__init__
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#binning.MakeBinning.compute_voronoi_binmap" class="md-nav__link">
@@ -748,6 +781,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label=" LoadBinning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#binning.LoadBinning.__call__" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;__call__
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#binning.LoadBinning.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;__init__
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -759,6 +816,15 @@
   
     <nav class="md-nav" aria-label=" MakeBinning">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#binning.MakeBinning.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;__init__
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#binning.MakeBinning.compute_voronoi_binmap" class="md-nav__link">
@@ -902,7 +968,31 @@ count_weighted barycentre of each bin.</p>
 <span class="normal">57</span>
 <span class="normal">58</span>
 <span class="normal">59</span>
-<span class="normal">60</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">LoadBinning</span> <span class="p">:</span> 
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">LoadBinning</span> <span class="p">:</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get the different arrays used for a simulation instance from a pickle </span>
 <span class="sd">    binning as created by xifusim. The count map is needed for returning the</span>
@@ -913,12 +1003,36 @@ count_weighted barycentre of each bin.</p>
                  <span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">360</span><span class="p">,</span><span class="mi">360</span><span class="p">),</span>
                  <span class="n">binning_file</span> <span class="o">=</span> <span class="s1">&#39;/xifu/home/mola/Turbu_300kpc_mosaics/repeat10_125ks/19p_region_200/region_files/19p_region_dict.p&#39;</span><span class="p">,</span>
                  <span class="n">count_map_file</span> <span class="o">=</span> <span class="s1">&#39;/xifu/home/mola/Turbu_300kpc_mosaics/repeat10_125ks/19p_count_image.fits&#39;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the loading</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            shape (tuple): Shape of the full image of the cluster that is used for the binning</span>
+<span class="sd">            binning_file (str): Path to the pickle file</span>
+<span class="sd">            count_map_file (str): Path to the count map used for binning</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="n">shape</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">binning_dict</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">region_image</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">binning_file</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">),</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;bytes&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">countmap</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">fits</span><span class="o">.</span><span class="n">getdata</span><span class="p">(</span><span class="n">count_map_file</span><span class="p">))</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Loads the binning</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            X_pixels (jnp.array): Array of x coordinate of each pixel on the xifusim images</span>
+<span class="sd">            Y_pixels (jnp.array): Array of y coordinate of each pixel on the xifusim images </span>
+<span class="sd">            bin_num_pix (jnp.array): Array of the bin number of each pixel</span>
+<span class="sd">            nb_bins (int): Number of bins</span>
+<span class="sd">            xBar_bins (jnp.array): Arrays of the count-wieghted barycenters, x coordinate</span>
+<span class="sd">            yBar_bins (jnp.array): Arrays of the count-wieghted barycenters, y coordinate </span>
+<span class="sd">            bin_nb_map (jnp.array):  Map of the bin numbers (mainly used as a sanity check)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># There are a few strange manipulations here but they are worth it, </span>
+        <span class="c1"># as it is much faster than the previous implementation</span>
+
 
         <span class="c1"># Convert to pandas dataframe</span>
         <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">binning_dict</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
@@ -968,6 +1082,328 @@ count_weighted barycentre of each bin.</p>
 
 
 
+<div class="doc doc-object doc-function">
+
+
+<h4 id="binning.LoadBinning.__call__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="fm">__call__</span><span class="p">()</span></code>
+
+<a href="#binning.LoadBinning.__call__" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Loads the binning</p>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>X_pixels</code></td>            <td>
+                  <code><span title="jax.numpy.array">array</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Array of x coordinate of each pixel on the xifusim images</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+<td><code>Y_pixels</code></td>            <td>
+                  <code><span title="jax.numpy.array">array</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Array of y coordinate of each pixel on the xifusim images </p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+<td><code>bin_num_pix</code></td>            <td>
+                  <code><span title="jax.numpy.array">array</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Array of the bin number of each pixel</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+<td><code>nb_bins</code></td>            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Number of bins</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+<td><code>xBar_bins</code></td>            <td>
+                  <code><span title="jax.numpy.array">array</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Arrays of the count-wieghted barycenters, x coordinate</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+<td><code>yBar_bins</code></td>            <td>
+                  <code><span title="jax.numpy.array">array</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Arrays of the count-wieghted barycenters, y coordinate </p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+<td><code>bin_nb_map</code></td>            <td>
+                  <code><span title="jax.numpy.array">array</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Map of the bin numbers (mainly used as a sanity check)</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+            <details class="quote">
+              <summary>Source code in <code>src/xifu_cluster_sim/binning.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Loads the binning</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        X_pixels (jnp.array): Array of x coordinate of each pixel on the xifusim images</span>
+<span class="sd">        Y_pixels (jnp.array): Array of y coordinate of each pixel on the xifusim images </span>
+<span class="sd">        bin_num_pix (jnp.array): Array of the bin number of each pixel</span>
+<span class="sd">        nb_bins (int): Number of bins</span>
+<span class="sd">        xBar_bins (jnp.array): Arrays of the count-wieghted barycenters, x coordinate</span>
+<span class="sd">        yBar_bins (jnp.array): Arrays of the count-wieghted barycenters, y coordinate </span>
+<span class="sd">        bin_nb_map (jnp.array):  Map of the bin numbers (mainly used as a sanity check)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># There are a few strange manipulations here but they are worth it, </span>
+    <span class="c1"># as it is much faster than the previous implementation</span>
+
+
+    <span class="c1"># Convert to pandas dataframe</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">binning_dict</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># Arrays of x and y coordinate of each pixel on the xifusim images </span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">X_pixels</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Y_pixels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="c1"># Number of bins</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">nb_bins</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">binning_dict</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+
+    <span class="c1"># Array of the bin number of each pixel</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">bin_num_pix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span>
+                            <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nb_bins</span><span class="p">),</span> 
+                            <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                            <span class="p">)</span>
+
+
+    <span class="c1"># Arrays of the count-weighted barycenters</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">xBar_bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+                            <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> 
+                                                                    <span class="n">weights</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">countmap</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+                                            <span class="p">)</span>
+                            <span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">yBar_bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+                            <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> 
+                                                                    <span class="n">weights</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">countmap</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+                                            <span class="p">)</span>
+                            <span class="p">)[</span><span class="mi">0</span><span class="p">]</span>               
+
+    <span class="c1"># Map of the bin numbers (mainly used as a sanity check)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">bin_nb_map</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span><span class="o">*-</span><span class="mi">1</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">bin_nb_map</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bin_nb_map</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">X_pixels</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Y_pixels</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bin_num_pix</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_pixels</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Y_pixels</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">bin_num_pix</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nb_bins</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">xBar_bins</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">yBar_bins</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">bin_nb_map</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="binning.LoadBinning.__init__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">360</span><span class="p">,</span> <span class="mi">360</span><span class="p">),</span> <span class="n">binning_file</span><span class="o">=</span><span class="s1">&#39;/xifu/home/mola/Turbu_300kpc_mosaics/repeat10_125ks/19p_region_200/region_files/19p_region_dict.p&#39;</span><span class="p">,</span> <span class="n">count_map_file</span><span class="o">=</span><span class="s1">&#39;/xifu/home/mola/Turbu_300kpc_mosaics/repeat10_125ks/19p_count_image.fits&#39;</span><span class="p">)</span></code>
+
+<a href="#binning.LoadBinning.__init__" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Initialize the loading</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>shape</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Shape of the full image of the cluster that is used for the binning</p>
+              </div>
+            </td>
+            <td>
+                  <code>(360, 360)</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>binning_file</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Path to the pickle file</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;/xifu/home/mola/Turbu_300kpc_mosaics/repeat10_125ks/19p_region_200/region_files/19p_region_dict.p&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>count_map_file</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Path to the count map used for binning</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;/xifu/home/mola/Turbu_300kpc_mosaics/repeat10_125ks/19p_count_image.fits&#39;</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+            <details class="quote">
+              <summary>Source code in <code>src/xifu_cluster_sim/binning.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+             <span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">360</span><span class="p">,</span><span class="mi">360</span><span class="p">),</span>
+             <span class="n">binning_file</span> <span class="o">=</span> <span class="s1">&#39;/xifu/home/mola/Turbu_300kpc_mosaics/repeat10_125ks/19p_region_200/region_files/19p_region_dict.p&#39;</span><span class="p">,</span>
+             <span class="n">count_map_file</span> <span class="o">=</span> <span class="s1">&#39;/xifu/home/mola/Turbu_300kpc_mosaics/repeat10_125ks/19p_count_image.fits&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Initialize the loading</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        shape (tuple): Shape of the full image of the cluster that is used for the binning</span>
+<span class="sd">        binning_file (str): Path to the pickle file</span>
+<span class="sd">        count_map_file (str): Path to the count map used for binning</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="n">shape</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">binning_dict</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">region_image</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">binning_file</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">),</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;bytes&quot;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">countmap</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">fits</span><span class="o">.</span><span class="n">getdata</span><span class="p">(</span><span class="n">count_map_file</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
 
 
   </div>
@@ -1000,31 +1436,7 @@ count_weighted barycentre of each bin.</p>
 
               <details class="quote">
                 <summary>Source code in <code>src/xifu_cluster_sim/binning.py</code></summary>
-                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 64</span>
-<span class="normal"> 65</span>
-<span class="normal"> 66</span>
-<span class="normal"> 67</span>
-<span class="normal"> 68</span>
-<span class="normal"> 69</span>
-<span class="normal"> 70</span>
-<span class="normal"> 71</span>
-<span class="normal"> 72</span>
-<span class="normal"> 73</span>
-<span class="normal"> 74</span>
-<span class="normal"> 75</span>
-<span class="normal"> 76</span>
-<span class="normal"> 77</span>
-<span class="normal"> 78</span>
-<span class="normal"> 79</span>
-<span class="normal"> 80</span>
-<span class="normal"> 81</span>
-<span class="normal"> 82</span>
-<span class="normal"> 83</span>
-<span class="normal"> 84</span>
-<span class="normal"> 85</span>
-<span class="normal"> 86</span>
-<span class="normal"> 87</span>
-<span class="normal"> 88</span>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 88</span>
 <span class="normal"> 89</span>
 <span class="normal"> 90</span>
 <span class="normal"> 91</span>
@@ -1109,16 +1521,76 @@ count_weighted barycentre of each bin.</p>
 <span class="normal">170</span>
 <span class="normal">171</span>
 <span class="normal">172</span>
-<span class="normal">173</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">MakeBinning</span><span class="p">():</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">MakeBinning</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Make a Voronoi binning of the count map</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                  <span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">360</span><span class="p">,</span><span class="mi">360</span><span class="p">),</span>
                  <span class="n">binning_file</span> <span class="o">=</span> <span class="s1">&#39;/xifu/home/mola/Turbu_300kpc_mosaics/repeat10_125ks/19p_region_200/region_files/19p_region_dict.p&#39;</span><span class="p">,</span>
                  <span class="n">count_map_file</span> <span class="o">=</span> <span class="s1">&#39;/xifu/home/mola/Turbu_300kpc_mosaics/repeat10_125ks/19p_count_image.fits&#39;</span><span class="p">,</span>
                  <span class="n">count_map</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
                  <span class="n">xifu_config</span> <span class="o">=</span> <span class="n">XIFU_Config</span><span class="p">()):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the loading</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            shape (tuple): Shape of the full image of the cluster that is used for the binning</span>
+<span class="sd">            binning_file (str): Path to the pickle file that will be saved</span>
+<span class="sd">            count_map_file (str): Path to the count map used for binning, loaded if count map not directly given</span>
+<span class="sd">            count_map (jnp.array): Count map</span>
+<span class="sd">            xifu_config (XIFU_Config): Instance of X-IFU configuration</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="n">shape</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">binning_file</span> <span class="o">=</span> <span class="n">binning_file</span>
@@ -1141,15 +1613,27 @@ count_weighted barycentre of each bin.</p>
                                <span class="n">pix2xy_file</span> <span class="o">=</span> <span class="s1">&#39;/xifu/home/mola/xifu_cluster_sim/data/pix2xy_newxifu.p&#39;</span><span class="p">,</span>
                                <span class="n">snr</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span>
                                <span class="n">voronoi_binning_quiet</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">        Computes the dictionnary for a voronoi region</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Computes a Voronoi binning</span>
 
-<span class="sd">        - image (array) containing the equivalent fits file</span>
-<span class="sd">        - mask_file (array) containing the mask file</span>
-<span class="sd">        - voronoi_output (string) points to output txt file</span>
-<span class="sd">        - binmap (string) points to output pickle file</span>
-<span class="sd">        - snr (int) S/N ratio targeted</span>
-<span class="sd">        &#39;&#39;&#39;</span>
+<span class="sd">        Parameters:</span>
+<span class="sd">            x_offset (int): Offset in x, if binning not centered on full image</span>
+<span class="sd">            y_offset (int): Offset in y, if binning not centered on full image</span>
+<span class="sd">            save_dict (bool): Whether to save the created binning to a pickle file</span>
+<span class="sd">            pix2xy_file (str): Path to the pickle file containing the conversion of pixids vs position on array</span>
+<span class="sd">            snr (int): Signal-to-noise ratio to use for binning</span>
+<span class="sd">            voronoi_binning_quiet (bool): Whether to shut off outputs of the voronoi binning which can be verbous</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            X_pixels (jnp.array): Array of x coordinate of each pixel on the xifusim images</span>
+<span class="sd">            Y_pixels (jnp.array): Array of y coordinate of each pixel on the xifusim images </span>
+<span class="sd">            bin_num_pix (jnp.array): Array of the bin number of each pixel</span>
+<span class="sd">            nb_bins (int): Number of bins</span>
+<span class="sd">            xBar_bins (jnp.array): Arrays of the count-wieghted barycenters, x coordinate</span>
+<span class="sd">            yBar_bins (jnp.array): Arrays of the count-wieghted barycenters, y coordinate </span>
+<span class="sd">            bin_nb_map (jnp.array):  Map of the bin numbers (mainly used as a sanity check)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="c1"># Arrays of x and y coordinate of each pixel on the xifusim images</span>
         <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">countmap</span> <span class="o">!=</span> <span class="mf">0.</span> <span class="p">)</span>
@@ -1237,31 +1721,115 @@ count_weighted barycentre of each bin.</p>
 <div class="doc doc-object doc-function">
 
 
-<h4 id="binning.MakeBinning.compute_voronoi_binmap" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">compute_voronoi_binmap</span><span class="p">(</span><span class="n">x_offsets</span><span class="p">,</span> <span class="n">y_offsets</span><span class="p">,</span> <span class="n">save_dict</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">pix2xy_file</span><span class="o">=</span><span class="s1">&#39;/xifu/home/mola/xifu_cluster_sim/data/pix2xy_newxifu.p&#39;</span><span class="p">,</span> <span class="n">snr</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">voronoi_binning_quiet</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code>
+<h4 id="binning.MakeBinning.__init__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">360</span><span class="p">,</span> <span class="mi">360</span><span class="p">),</span> <span class="n">binning_file</span><span class="o">=</span><span class="s1">&#39;/xifu/home/mola/Turbu_300kpc_mosaics/repeat10_125ks/19p_region_200/region_files/19p_region_dict.p&#39;</span><span class="p">,</span> <span class="n">count_map_file</span><span class="o">=</span><span class="s1">&#39;/xifu/home/mola/Turbu_300kpc_mosaics/repeat10_125ks/19p_count_image.fits&#39;</span><span class="p">,</span> <span class="n">count_map</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xifu_config</span><span class="o">=</span><span class="n">XIFU_Config</span><span class="p">())</span></code>
 
-<a href="#binning.MakeBinning.compute_voronoi_binmap" class="headerlink" title="Permanent link">&para;</a></h4>
+<a href="#binning.MakeBinning.__init__" class="headerlink" title="Permanent link">&para;</a></h4>
 
 
     <div class="doc doc-contents ">
 
-        <p>Computes the dictionnary for a voronoi region</p>
-<ul>
-<li>image (array) containing the equivalent fits file</li>
-<li>mask_file (array) containing the mask file</li>
-<li>voronoi_output (string) points to output txt file</li>
-<li>binmap (string) points to output pickle file</li>
-<li>snr (int) S/N ratio targeted</li>
-</ul>
+        <p>Initialize the loading</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>shape</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Shape of the full image of the cluster that is used for the binning</p>
+              </div>
+            </td>
+            <td>
+                  <code>(360, 360)</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>binning_file</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Path to the pickle file that will be saved</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;/xifu/home/mola/Turbu_300kpc_mosaics/repeat10_125ks/19p_region_200/region_files/19p_region_dict.p&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>count_map_file</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Path to the count map used for binning, loaded if count map not directly given</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;/xifu/home/mola/Turbu_300kpc_mosaics/repeat10_125ks/19p_count_image.fits&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>count_map</code>
+            </td>
+            <td>
+                  <code><span title="jax.numpy.array">array</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Count map</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>xifu_config</code>
+            </td>
+            <td>
+                  <code><span title="binning.xifu_config.XIFU_Config">XIFU_Config</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Instance of X-IFU configuration</p>
+              </div>
+            </td>
+            <td>
+                  <code><span title="binning.xifu_config.XIFU_Config">XIFU_Config</span>()</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
 
 
             <details class="quote">
               <summary>Source code in <code>src/xifu_cluster_sim/binning.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 89</span>
-<span class="normal"> 90</span>
-<span class="normal"> 91</span>
-<span class="normal"> 92</span>
-<span class="normal"> 93</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 93</span>
 <span class="normal"> 94</span>
 <span class="normal"> 95</span>
 <span class="normal"> 96</span>
@@ -1291,9 +1859,254 @@ count_weighted barycentre of each bin.</p>
 <span class="normal">120</span>
 <span class="normal">121</span>
 <span class="normal">122</span>
-<span class="normal">123</span>
-<span class="normal">124</span>
-<span class="normal">125</span>
+<span class="normal">123</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+             <span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">360</span><span class="p">,</span><span class="mi">360</span><span class="p">),</span>
+             <span class="n">binning_file</span> <span class="o">=</span> <span class="s1">&#39;/xifu/home/mola/Turbu_300kpc_mosaics/repeat10_125ks/19p_region_200/region_files/19p_region_dict.p&#39;</span><span class="p">,</span>
+             <span class="n">count_map_file</span> <span class="o">=</span> <span class="s1">&#39;/xifu/home/mola/Turbu_300kpc_mosaics/repeat10_125ks/19p_count_image.fits&#39;</span><span class="p">,</span>
+             <span class="n">count_map</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+             <span class="n">xifu_config</span> <span class="o">=</span> <span class="n">XIFU_Config</span><span class="p">()):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Initialize the loading</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        shape (tuple): Shape of the full image of the cluster that is used for the binning</span>
+<span class="sd">        binning_file (str): Path to the pickle file that will be saved</span>
+<span class="sd">        count_map_file (str): Path to the count map used for binning, loaded if count map not directly given</span>
+<span class="sd">        count_map (jnp.array): Count map</span>
+<span class="sd">        xifu_config (XIFU_Config): Instance of X-IFU configuration</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="n">shape</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">binning_file</span> <span class="o">=</span> <span class="n">binning_file</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">xifu_config</span> <span class="o">=</span> <span class="n">xifu_config</span>
+    <span class="k">if</span> <span class="n">count_map_file</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Loading :&#39;</span><span class="p">,</span> <span class="n">count_map_file</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">countmap</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">fits</span><span class="o">.</span><span class="n">getdata</span><span class="p">(</span><span class="n">count_map_file</span><span class="p">),</span> <span class="n">dtype</span> <span class="o">=</span> <span class="s1">&#39;float32&#39;</span><span class="p">)</span>
+    <span class="k">else</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="n">count_map</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Using provided array&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">countmap</span> <span class="o">=</span> <span class="n">count_map</span>
+
+        <span class="k">else</span> <span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No count map was provided&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="binning.MakeBinning.compute_voronoi_binmap" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">compute_voronoi_binmap</span><span class="p">(</span><span class="n">x_offsets</span><span class="p">,</span> <span class="n">y_offsets</span><span class="p">,</span> <span class="n">save_dict</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">pix2xy_file</span><span class="o">=</span><span class="s1">&#39;/xifu/home/mola/xifu_cluster_sim/data/pix2xy_newxifu.p&#39;</span><span class="p">,</span> <span class="n">snr</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">voronoi_binning_quiet</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code>
+
+<a href="#binning.MakeBinning.compute_voronoi_binmap" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Computes a Voronoi binning</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>x_offset</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Offset in x, if binning not centered on full image</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>y_offset</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Offset in y, if binning not centered on full image</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>save_dict</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Whether to save the created binning to a pickle file</p>
+              </div>
+            </td>
+            <td>
+                  <code>False</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>pix2xy_file</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Path to the pickle file containing the conversion of pixids vs position on array</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;/xifu/home/mola/xifu_cluster_sim/data/pix2xy_newxifu.p&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>snr</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Signal-to-noise ratio to use for binning</p>
+              </div>
+            </td>
+            <td>
+                  <code>200</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>voronoi_binning_quiet</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Whether to shut off outputs of the voronoi binning which can be verbous</p>
+              </div>
+            </td>
+            <td>
+                  <code>True</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>X_pixels</code></td>            <td>
+                  <code><span title="jax.numpy.array">array</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Array of x coordinate of each pixel on the xifusim images</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+<td><code>Y_pixels</code></td>            <td>
+                  <code><span title="jax.numpy.array">array</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Array of y coordinate of each pixel on the xifusim images </p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+<td><code>bin_num_pix</code></td>            <td>
+                  <code><span title="jax.numpy.array">array</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Array of the bin number of each pixel</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+<td><code>nb_bins</code></td>            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Number of bins</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+<td><code>xBar_bins</code></td>            <td>
+                  <code><span title="jax.numpy.array">array</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Arrays of the count-wieghted barycenters, x coordinate</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+<td><code>yBar_bins</code></td>            <td>
+                  <code><span title="jax.numpy.array">array</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Arrays of the count-wieghted barycenters, y coordinate </p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+<td><code>bin_nb_map</code></td>            <td>
+                  <code><span title="jax.numpy.array">array</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Map of the bin numbers (mainly used as a sanity check)</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+            <details class="quote">
+              <summary>Source code in <code>src/xifu_cluster_sim/binning.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">125</span>
 <span class="normal">126</span>
 <span class="normal">127</span>
 <span class="normal">128</span>
@@ -1341,22 +2154,82 @@ count_weighted barycentre of each bin.</p>
 <span class="normal">170</span>
 <span class="normal">171</span>
 <span class="normal">172</span>
-<span class="normal">173</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">compute_voronoi_binmap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">compute_voronoi_binmap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                            <span class="n">x_offsets</span><span class="p">,</span>
                            <span class="n">y_offsets</span><span class="p">,</span>
                            <span class="n">save_dict</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
                            <span class="n">pix2xy_file</span> <span class="o">=</span> <span class="s1">&#39;/xifu/home/mola/xifu_cluster_sim/data/pix2xy_newxifu.p&#39;</span><span class="p">,</span>
                            <span class="n">snr</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span>
                            <span class="n">voronoi_binning_quiet</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Computes the dictionnary for a voronoi region</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Computes a Voronoi binning</span>
 
-<span class="sd">    - image (array) containing the equivalent fits file</span>
-<span class="sd">    - mask_file (array) containing the mask file</span>
-<span class="sd">    - voronoi_output (string) points to output txt file</span>
-<span class="sd">    - binmap (string) points to output pickle file</span>
-<span class="sd">    - snr (int) S/N ratio targeted</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        x_offset (int): Offset in x, if binning not centered on full image</span>
+<span class="sd">        y_offset (int): Offset in y, if binning not centered on full image</span>
+<span class="sd">        save_dict (bool): Whether to save the created binning to a pickle file</span>
+<span class="sd">        pix2xy_file (str): Path to the pickle file containing the conversion of pixids vs position on array</span>
+<span class="sd">        snr (int): Signal-to-noise ratio to use for binning</span>
+<span class="sd">        voronoi_binning_quiet (bool): Whether to shut off outputs of the voronoi binning which can be verbous</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        X_pixels (jnp.array): Array of x coordinate of each pixel on the xifusim images</span>
+<span class="sd">        Y_pixels (jnp.array): Array of y coordinate of each pixel on the xifusim images </span>
+<span class="sd">        bin_num_pix (jnp.array): Array of the bin number of each pixel</span>
+<span class="sd">        nb_bins (int): Number of bins</span>
+<span class="sd">        xBar_bins (jnp.array): Arrays of the count-wieghted barycenters, x coordinate</span>
+<span class="sd">        yBar_bins (jnp.array): Arrays of the count-wieghted barycenters, y coordinate </span>
+<span class="sd">        bin_nb_map (jnp.array):  Map of the bin numbers (mainly used as a sanity check)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># Arrays of x and y coordinate of each pixel on the xifusim images</span>
     <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">countmap</span> <span class="o">!=</span> <span class="mf">0.</span> <span class="p">)</span>
