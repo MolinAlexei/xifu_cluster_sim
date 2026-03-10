@@ -64,6 +64,16 @@ class PhotonList:
                            x_offset=0,
                            y_offset=0,
                            pointing_shape = (58,58)):
+
+        """
+        Selects the portion of input grid that falls within selected pointing
+
+        Parameters:
+            x_offset (int): Offset along X, in pixels
+            y_offset (int): Offset along Y, in pixels
+            pointing_shape (tuple): Shape of pointing to extract from input grid
+
+        """
         
         total_shape = self.cluster.grid.shape
         X,Y = np.meshgrid(np.arange(total_shape[0]),
@@ -81,6 +91,19 @@ class PhotonList:
         self.z_cube = self.cluster.z_cube[mask]
 
     def process_los(self,ra_los,dec_los,norm_los,kT_los, Z_los, z_los):
+        """
+        Process a single line of sight within the input data
+
+
+        Parameters:
+            ra_los (jnp.array): Right ascension
+            dec_los (jnp.array): Declination
+            norm_los (jnp.array): Norm of spectrum
+            kT_los (jnp.array): Temperature
+            Z_los (jnp.array): Abundance
+            z_los (jnp.array): Redshift
+        """
+
         res = []
         for k in range(self.cluster.grid.shape[-1]):
             ra = ra_los[k]
@@ -102,20 +125,46 @@ class PhotonList:
     
     
     def worker_block(self,args_block):
-        # runs in one process, shares ph_list
+        """
+        Worker function that parallelizes the processing of a single line of sight over 
+        numthreads threads
+
+        Parameters:
+            args_block (list): block of arguments to give to process_los
+        """
+
         results = []
         with ThreadPoolExecutor(max_workers=self.numthreads) as executor:
             for r in executor.map(lambda args: self.process_los(*args), args_block):
                 results.append(r)
         return results
 
-    # Split your total args_list into 4 blocks
+    
     def chunkify(self,lst, n):
+        """
+        Convenience function to turn a list into n chunks of equal size
+
+        Parameters:
+            lst (list): list to chunkify
+            n (int): number of chunks
+        """
         return [lst[i::n] for i in range(n)]
     
     def get_args_list(self,
                       numprocs= 4,
                       numthreads  = 8):
+        """
+        Convenience function to get the arguments for the multiprocessing function.
+        The computation is divided in multiprocessing and multithreading as it was found to
+        be the best balance in speed and memory usage. For 32 cores, the best is 4 processes
+        and 8 threads each.
+
+        Parameters:
+            numprocs (int): Number of processes
+            numthreads (int): Number of threads
+
+        """
+
         self.numprocs = numprocs
         self.numthreads = numthreads
         los_len = self.cluster.grid.shape[-1]
@@ -266,10 +315,16 @@ class PhotonList:
                                     path = '/xifu/home/mola/xifu_cluster_sim/',
                                     name_format = 'ph_list'):
         '''
-        Divide the photon list into equal divisions, 
-        and write each to a simput file.
+        Divide the photon list into equal divisions, and write each to a simput file.
+        This subdivision is done in order to run multiple SIXTE processes in parallel.
+        A folder "sixte_files" is created in the given path. Several folders called
+        "part_1", "part_2"... are created in "sixte_files.
+
         Parameters
+            photon_list (list): List of photons created
             num_divisions (float) : Number of divisions of the photon list
+            path (str): Path for where to save the photon list
+            name_format (str): Prefix to give to each photon list
         '''
         self.fluxes = photon_list[0]
         self.energies = photon_list[1]
@@ -383,6 +438,16 @@ def create_photon_list(ph_list_object,
                       blocks,
                       numproc, 
                       ):
+    """
+    Function to create the photon list. It has to be instanciated outside of 
+    the photon_list class.
+
+    Parameters:
+        ph_list_object (class): photon_list object
+        blocks (list) : Chunkified list of arguments (ra, dec, norm, temp, abund, redshift)
+        numproc (int) : Number of processes
+    """
+    
     with Pool(processes=numproc, initializer=lambda: globals().update({'ph_list': ph_list_object})) as pool:
         results_nested = []
         for block_result in pool.imap(ph_list_object.worker_block, blocks):
