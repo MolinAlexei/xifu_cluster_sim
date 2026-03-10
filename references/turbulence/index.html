@@ -840,8 +840,8 @@
     <div class="doc doc-contents ">
 
 
-        <p>Kolmogorov power spectrum
-<span class="arithmatex">\(<span class="arithmatex">\(\mathcal{P}_{3D}(k)= \sigma^2 \frac{e^{-\left(k/k_{\text{inj}}\right)^2} e^{-\left(k_{\text{dis}}/k\right)^2} k^{-\alpha} }{\int 4\pi k^2  \, e^{-\left(k/k_{\text{inj}}\right)^2} e^{-\left(k_{\text{dis}}/k\right)^2} k^{-\alpha} \text{d} k}\)</span>\)</span></p>
+        <p>Kolmogorov power spectrum</p>
+<div class="arithmatex">\[\mathcal{P}_{3D}(k)= \sigma^2 \frac{e^{-\left(k/k_{\text{inj}}\right)^2} e^{-\left(k_{\text{dis}}/k\right)^2} k^{-\alpha} }{\int 4\pi k^2  \, e^{-\left(k/k_{\text{inj}}\right)^2} e^{-\left(k_{\text{dis}}/k\right)^2} k^{-\alpha} \text{d} k}\]</div>
 
 
 
@@ -918,9 +918,13 @@
 <span class="normal">70</span>
 <span class="normal">71</span>
 <span class="normal">72</span>
-<span class="normal">73</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">KolmogorovPowerSpectrum</span><span class="p">:</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">KolmogorovPowerSpectrum</span><span class="p">:</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Kolmogorov power spectrum</span>
+
 <span class="sd">    $$\mathcal{P}_{3D}(k)= \sigma^2 \frac{e^{-\left(k/k_{\text{inj}}\right)^2} e^{-\left(k_{\text{dis}}/k\right)^2} k^{-\alpha} }{\int 4\pi k^2  \, e^{-\left(k/k_{\text{inj}}\right)^2} e^{-\left(k_{\text{dis}}/k\right)^2} k^{-\alpha} \text{d} k}$$</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -945,12 +949,14 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="n">alpha</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">k_max</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Computes the Kolmogorov power spectrum over k. </span>
 <span class="sd">        When this power spectrum is used to represent a gaussian random field on a discrete grid, if the dissipation scale is smaller</span>
 <span class="sd">        than the smallest scale available, some power is not represented on the grid.</span>
 <span class="sd">        This power is :</span>
+
 <span class="sd">        $$\mathcal{P}_{3D}(k)= \sigma^2 \int_{k_\mathrm{max}}^{\infty} 4\pi k^2  P(k) \text{d} k$$</span>
+
 <span class="sd">        It is also computed and returned.</span>
 
 <span class="sd">        Parameters:</span>
@@ -1015,9 +1021,9 @@
         <p>Computes the Kolmogorov power spectrum over k. 
 When this power spectrum is used to represent a gaussian random field on a discrete grid, if the dissipation scale is smaller
 than the smallest scale available, some power is not represented on the grid.
-This power is :
-<span class="arithmatex">\(<span class="arithmatex">\(\mathcal{P}_{3D}(k)= \sigma^2 \int_{k_\mathrm{max}}^{\infty} 4\pi k^2  P(k)   ext{d} k\)</span>\)</span>
-It is also computed and returned.</p>
+This power is :</p>
+<div class="arithmatex">\[\mathcal{P}_{3D}(k)= \sigma^2 \int_{k_\mathrm{max}}^{\infty} 4\pi k^2  P(k) \text{d} k\]</div>
+<p>It is also computed and returned.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -1102,8 +1108,7 @@ It is also computed and returned.</p>
 
             <details class="quote">
               <summary>Source code in <code>src/xifu_cluster_sim/turbulence.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">32</span>
-<span class="normal">33</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">33</span>
 <span class="normal">34</span>
 <span class="normal">35</span>
 <span class="normal">36</span>
@@ -1143,13 +1148,18 @@ It is also computed and returned.</p>
 <span class="normal">70</span>
 <span class="normal">71</span>
 <span class="normal">72</span>
-<span class="normal">73</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">k_max</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">k_max</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes the Kolmogorov power spectrum over k. </span>
 <span class="sd">    When this power spectrum is used to represent a gaussian random field on a discrete grid, if the dissipation scale is smaller</span>
 <span class="sd">    than the smallest scale available, some power is not represented on the grid.</span>
 <span class="sd">    This power is :</span>
+
 <span class="sd">    $$\mathcal{P}_{3D}(k)= \sigma^2 \int_{k_\mathrm{max}}^{\infty} 4\pi k^2  P(k) \text{d} k$$</span>
+
 <span class="sd">    It is also computed and returned.</span>
 
 <span class="sd">    Parameters:</span>
@@ -1286,8 +1296,7 @@ It is also computed and returned.</p>
 
             <details class="quote">
               <summary>Source code in <code>src/xifu_cluster_sim/turbulence.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">13</span>
-<span class="normal">14</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">14</span>
 <span class="normal">15</span>
 <span class="normal">16</span>
 <span class="normal">17</span>
@@ -1303,7 +1312,8 @@ It is also computed and returned.</p>
 <span class="normal">27</span>
 <span class="normal">28</span>
 <span class="normal">29</span>
-<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
+<span class="normal">30</span>
+<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
              <span class="n">sigma</span> <span class="o">=</span> <span class="mf">250.</span><span class="p">,</span> 
              <span class="n">inj_scale</span> <span class="o">=</span> <span class="mf">300.</span><span class="p">,</span>
              <span class="n">dis_scale</span> <span class="o">=</span> <span class="mf">1e-3</span><span class="p">,</span>
