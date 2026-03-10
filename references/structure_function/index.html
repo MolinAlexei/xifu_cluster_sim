@@ -618,35 +618,20 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#structure_function.StructureFunction.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;__init__
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#structure_function.StructureFunction.compute_from_map" class="md-nav__link">
     <span class="md-ellipsis">
       <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;compute_from_map
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label=" compute_from_map">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#structure_function.StructureFunction.compute_from_map--parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      Parameters
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#structure_function.StructureFunction.compute_from_map--returns" class="md-nav__link">
-    <span class="md-ellipsis">
-      Returns
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -656,30 +641,6 @@
       <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;compute_from_vector
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label=" compute_from_vector">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#structure_function.StructureFunction.compute_from_vector--parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      Parameters
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#structure_function.StructureFunction.compute_from_vector--returns" class="md-nav__link">
-    <span class="md-ellipsis">
-      Returns
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -800,35 +761,20 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#structure_function.StructureFunction.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;__init__
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#structure_function.StructureFunction.compute_from_map" class="md-nav__link">
     <span class="md-ellipsis">
       <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;compute_from_map
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label=" compute_from_map">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#structure_function.StructureFunction.compute_from_map--parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      Parameters
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#structure_function.StructureFunction.compute_from_map--returns" class="md-nav__link">
-    <span class="md-ellipsis">
-      Returns
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -838,30 +784,6 @@
       <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;compute_from_vector
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label=" compute_from_vector">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#structure_function.StructureFunction.compute_from_vector--parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      Parameters
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#structure_function.StructureFunction.compute_from_vector--returns" class="md-nav__link">
-    <span class="md-ellipsis">
-      Returns
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -935,6 +857,11 @@
 
     <div class="doc doc-contents ">
 
+
+        <p>Compute the second order structure function on a 2D binned map as
+<span class="arithmatex">\(<span class="arithmatex">\(\mathrm{SF}(s) = \frac{1}{N_p(s)} \sum_{d(\mathcal{W}_1, \mathcal{W}_2) = s} |C_{\mathcal{W}_1} - C_{\mathcal{W}_2}|^2\)</span>\)</span></p>
+<p>with 
+<span class="arithmatex">\(<span class="arithmatex">\(\mathcal{W}_1, \mathcal{W}_2\)</span>\)</span> two separate regions, <span class="arithmatex">\(<span class="arithmatex">\(d\)</span>\)</span> the distance that separates them and <span class="arithmatex">\(<span class="arithmatex">\(N_p\)</span>\)</span> the number of pairs separated by <span class="arithmatex">\(s\)</span>.</p>
 
 
 
@@ -1064,11 +991,26 @@
 <span class="normal">125</span>
 <span class="normal">126</span>
 <span class="normal">127</span>
-<span class="normal">128</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">StructureFunction</span><span class="p">:</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">StructureFunction</span><span class="p">:</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute the second order structure function on a 2D binned map as</span>
+<span class="sd">    $$\mathrm{SF}(s) = \frac{1}{N_p(s)} \sum_{d(\mathcal{W}_1, \mathcal{W}_2) = s} |C_{\mathcal{W}_1} - C_{\mathcal{W}_2}|^2$$</span>
+
+<span class="sd">    with </span>
+<span class="sd">    $$\mathcal{W}_1, \mathcal{W}_2$$ two separate regions, $$d$$ the distance that separates them and $$N_p$$ the number of pairs separated by $s$.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                 <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">geomspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">15</span><span class="p">)</span>
                 <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            bins (np.array): Bins over which the structure function is computed, in units of pixels.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">bins</span> <span class="o">=</span> <span class="n">bins</span>
 
@@ -1076,20 +1018,17 @@
                         <span class="n">binning</span><span class="p">,</span>
                         <span class="n">v_bin_vec</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Computes the 2nd order structure function of an image with arbitrary binning.</span>
+<span class="sd">        Computes the 2nd order structure function from a vector.</span>
+<span class="sd">        This vector is taken from a binning, where the i-th value of the vector is the value in the i-th bin of the map.</span>
 
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        v_bin_vec : array</span>
-<span class="sd">            Array of the count weighted velocity in each bin</span>
+<span class="sd">        Parameters:</span>
+<span class="sd">            binning (binning): Binning instance</span>
+<span class="sd">            v_bin_vec (jnp.array): Array of the value in each bin</span>
 
 
-<span class="sd">        Returns</span>
-<span class="sd">        ------- </span>
-<span class="sd">        bin_dists : array</span>
-<span class="sd">            Separations of the SF</span>
-<span class="sd">        bin_means : array </span>
-<span class="sd">            Values of the SF</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            bin_dists (jnp.array): Separations of the SF</span>
+<span class="sd">            bin_means (jnp.array): Values of the SF</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="c1">#Indexes of all possible combinations</span>
@@ -1123,31 +1062,23 @@
 
         <span class="c1">#Note : in principle, we shouldn&#39;t be taking the average distance in each bin, we should</span>
         <span class="c1">#take the bin center, but that&#39;s for comparison purposes with Edo&#39;s code</span>
+        <span class="c1">#For most cases, with a lot of values in each bin, the average is equivalent with the bin center.</span>
 
         <span class="k">return</span> <span class="n">hist_dists</span><span class="p">,</span> <span class="n">bin_means</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">compute_from_map</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">binning</span><span class="p">,</span> <span class="n">v_map</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Computes the 2nd order structure function of an image with arbitrary binning.</span>
+<span class="sd">        Computes the 2nd order structure function of a binned image with arbitrary binning.</span>
 
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        v_bin_vec : array</span>
-<span class="sd">            Array of the count weighted velocity in each bin</span>
-<span class="sd">        xbary : array</span>
-<span class="sd">            Array of the bin barycenters X coordinate</span>
-<span class="sd">        ybary : array</span>
-<span class="sd">            Array of the bin barycenters Y coordinate</span>
-<span class="sd">        bins : array, optional</span>
-<span class="sd">            Array of the binning chosen for the SF</span>
+<span class="sd">        Parameters:</span>
+<span class="sd">            binning (binning): Binning instance</span>
+<span class="sd">            v_bin_vec (jnp.array): Map of the binned values</span>
 
-<span class="sd">        Returns</span>
-<span class="sd">        ------- </span>
-<span class="sd">        bin_dists : array</span>
-<span class="sd">            Separations of the SF</span>
-<span class="sd">        bin_means : array </span>
-<span class="sd">            Values of the SF</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            bin_dists (jnp.array): Separations of the SF</span>
+<span class="sd">            bin_means (jnp.array): Values of the SF</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="n">v_bin_vec</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">binning</span><span class="o">.</span><span class="n">nb_bins</span><span class="p">)</span>
         <span class="n">v_bin_vec</span> <span class="o">=</span> <span class="n">v_bin_vec</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">binning</span><span class="o">.</span><span class="n">bin_num_pix</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">v_map</span><span class="p">[</span><span class="n">binning</span><span class="o">.</span><span class="n">X_pixels</span><span class="p">,</span>
                                                                 <span class="n">binning</span><span class="o">.</span><span class="n">Y_pixels</span><span class="p">])</span>
@@ -1203,6 +1134,80 @@
 <div class="doc doc-object doc-function">
 
 
+<h4 id="structure_function.StructureFunction.__init__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">geomspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span></code>
+
+<a href="#structure_function.StructureFunction.__init__" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Initialize</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>bins</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" title="numpy.array" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array">array</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Bins over which the structure function is computed, in units of pixels.</p>
+              </div>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" title="numpy.geomspace" href="https://numpy.org/doc/stable/reference/generated/numpy.geomspace.html#numpy.geomspace">geomspace</a>(1, 40, 15)</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+            <details class="quote">
+              <summary>Source code in <code>src/xifu_cluster_sim/structure_function.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+            <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">geomspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">15</span><span class="p">)</span>
+            <span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Initialize</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        bins (np.array): Bins over which the structure function is computed, in units of pixels.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">bins</span> <span class="o">=</span> <span class="n">bins</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
 <h4 id="structure_function.StructureFunction.compute_from_map" class="doc doc-heading">
             <code class="highlight language-python"><span class="n">compute_from_map</span><span class="p">(</span><span class="n">binning</span><span class="p">,</span> <span class="n">v_map</span><span class="p">)</span></code>
 
@@ -1211,37 +1216,92 @@
 
     <div class="doc doc-contents ">
 
-        <p>Computes the 2<sup>nd</sup> order structure function of an image with arbitrary binning.</p>
-<h6 id="structure_function.StructureFunction.compute_from_map--parameters">Parameters<a class="headerlink" href="#structure_function.StructureFunction.compute_from_map--parameters" title="Permanent link">&para;</a></h6>
-<p>v_bin_vec : array
-    Array of the count weighted velocity in each bin
-xbary : array
-    Array of the bin barycenters X coordinate
-ybary : array
-    Array of the bin barycenters Y coordinate
-bins : array, optional
-    Array of the binning chosen for the SF</p>
-<h6 id="structure_function.StructureFunction.compute_from_map--returns">Returns<a class="headerlink" href="#structure_function.StructureFunction.compute_from_map--returns" title="Permanent link">&para;</a></h6>
-<p>bin_dists : array
-    Separations of the SF
-bin_means : array 
-    Values of the SF</p>
+        <p>Computes the 2<sup>nd</sup> order structure function of a binned image with arbitrary binning.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>binning</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-internal" href="../binning/#binning">binning</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Binning instance</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>v_bin_vec</code>
+            </td>
+            <td>
+                  <code><span title="jax.numpy.array">array</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Map of the binned values</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>bin_dists</code></td>            <td>
+                  <code><span title="jax.numpy.array">array</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Separations of the SF</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+<td><code>bin_means</code></td>            <td>
+                  <code><span title="jax.numpy.array">array</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Values of the SF</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
 
 
             <details class="quote">
               <summary>Source code in <code>src/xifu_cluster_sim/structure_function.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 70</span>
-<span class="normal"> 71</span>
-<span class="normal"> 72</span>
-<span class="normal"> 73</span>
-<span class="normal"> 74</span>
-<span class="normal"> 75</span>
-<span class="normal"> 76</span>
-<span class="normal"> 77</span>
-<span class="normal"> 78</span>
-<span class="normal"> 79</span>
-<span class="normal"> 80</span>
-<span class="normal"> 81</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 81</span>
 <span class="normal"> 82</span>
 <span class="normal"> 83</span>
 <span class="normal"> 84</span>
@@ -1288,28 +1348,21 @@ bin_means : array
 <span class="normal">125</span>
 <span class="normal">126</span>
 <span class="normal">127</span>
-<span class="normal">128</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">compute_from_map</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">binning</span><span class="p">,</span> <span class="n">v_map</span><span class="p">):</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">compute_from_map</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">binning</span><span class="p">,</span> <span class="n">v_map</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Computes the 2nd order structure function of an image with arbitrary binning.</span>
+<span class="sd">    Computes the 2nd order structure function of a binned image with arbitrary binning.</span>
 
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    v_bin_vec : array</span>
-<span class="sd">        Array of the count weighted velocity in each bin</span>
-<span class="sd">    xbary : array</span>
-<span class="sd">        Array of the bin barycenters X coordinate</span>
-<span class="sd">    ybary : array</span>
-<span class="sd">        Array of the bin barycenters Y coordinate</span>
-<span class="sd">    bins : array, optional</span>
-<span class="sd">        Array of the binning chosen for the SF</span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        binning (binning): Binning instance</span>
+<span class="sd">        v_bin_vec (jnp.array): Map of the binned values</span>
 
-<span class="sd">    Returns</span>
-<span class="sd">    ------- </span>
-<span class="sd">    bin_dists : array</span>
-<span class="sd">        Separations of the SF</span>
-<span class="sd">    bin_means : array </span>
-<span class="sd">        Values of the SF</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        bin_dists (jnp.array): Separations of the SF</span>
+<span class="sd">        bin_means (jnp.array): Values of the SF</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">v_bin_vec</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">binning</span><span class="o">.</span><span class="n">nb_bins</span><span class="p">)</span>
     <span class="n">v_bin_vec</span> <span class="o">=</span> <span class="n">v_bin_vec</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">binning</span><span class="o">.</span><span class="n">bin_num_pix</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">v_map</span><span class="p">[</span><span class="n">binning</span><span class="o">.</span><span class="n">X_pixels</span><span class="p">,</span>
                                                             <span class="n">binning</span><span class="o">.</span><span class="n">Y_pixels</span><span class="p">])</span>
@@ -1364,33 +1417,93 @@ bin_means : array
 
     <div class="doc doc-contents ">
 
-        <p>Computes the 2<sup>nd</sup> order structure function of an image with arbitrary binning.</p>
-<h6 id="structure_function.StructureFunction.compute_from_vector--parameters">Parameters<a class="headerlink" href="#structure_function.StructureFunction.compute_from_vector--parameters" title="Permanent link">&para;</a></h6>
-<p>v_bin_vec : array
-    Array of the count weighted velocity in each bin</p>
-<h6 id="structure_function.StructureFunction.compute_from_vector--returns">Returns<a class="headerlink" href="#structure_function.StructureFunction.compute_from_vector--returns" title="Permanent link">&para;</a></h6>
-<p>bin_dists : array
-    Separations of the SF
-bin_means : array 
-    Values of the SF</p>
+        <p>Computes the 2<sup>nd</sup> order structure function from a vector.
+This vector is taken from a binning, where the i-th value of the vector is the value in the i-th bin of the map.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>binning</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-internal" href="../binning/#binning">binning</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Binning instance</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>v_bin_vec</code>
+            </td>
+            <td>
+                  <code><span title="jax.numpy.array">array</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Array of the value in each bin</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>bin_dists</code></td>            <td>
+                  <code><span title="jax.numpy.array">array</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Separations of the SF</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+<td><code>bin_means</code></td>            <td>
+                  <code><span title="jax.numpy.array">array</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Values of the SF</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
 
 
             <details class="quote">
               <summary>Source code in <code>src/xifu_cluster_sim/structure_function.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">29</span>
 <span class="normal">30</span>
 <span class="normal">31</span>
 <span class="normal">32</span>
@@ -1429,24 +1542,32 @@ bin_means : array
 <span class="normal">65</span>
 <span class="normal">66</span>
 <span class="normal">67</span>
-<span class="normal">68</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">compute_from_vector</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">compute_from_vector</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                     <span class="n">binning</span><span class="p">,</span>
                     <span class="n">v_bin_vec</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Computes the 2nd order structure function of an image with arbitrary binning.</span>
+<span class="sd">    Computes the 2nd order structure function from a vector.</span>
+<span class="sd">    This vector is taken from a binning, where the i-th value of the vector is the value in the i-th bin of the map.</span>
 
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    v_bin_vec : array</span>
-<span class="sd">        Array of the count weighted velocity in each bin</span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        binning (binning): Binning instance</span>
+<span class="sd">        v_bin_vec (jnp.array): Array of the value in each bin</span>
 
 
-<span class="sd">    Returns</span>
-<span class="sd">    ------- </span>
-<span class="sd">    bin_dists : array</span>
-<span class="sd">        Separations of the SF</span>
-<span class="sd">    bin_means : array </span>
-<span class="sd">        Values of the SF</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        bin_dists (jnp.array): Separations of the SF</span>
+<span class="sd">        bin_means (jnp.array): Values of the SF</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1">#Indexes of all possible combinations</span>
@@ -1480,6 +1601,7 @@ bin_means : array
 
     <span class="c1">#Note : in principle, we shouldn&#39;t be taking the average distance in each bin, we should</span>
     <span class="c1">#take the bin center, but that&#39;s for comparison purposes with Edo&#39;s code</span>
+    <span class="c1">#For most cases, with a lot of values in each bin, the average is equivalent with the bin center.</span>
 
     <span class="k">return</span> <span class="n">hist_dists</span><span class="p">,</span> <span class="n">bin_means</span>
 </code></pre></div></td></tr></table></div>
