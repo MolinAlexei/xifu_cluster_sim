@@ -648,6 +648,36 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label=" xifu_config">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xifu_config.XIFU_Config" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-class"></code>&nbsp;XIFU_Config
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label=" XIFU_Config">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xifu_config.XIFU_Config.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;__init__
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -697,6 +727,36 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label=" xifu_config">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xifu_config.XIFU_Config" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-class"></code>&nbsp;XIFU_Config
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label=" XIFU_Config">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xifu_config.XIFU_Config.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;__init__
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -745,6 +805,160 @@
 
 
 
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="xifu_config.XIFU_Config" class="doc doc-heading">
+            <code>XIFU_Config</code>
+
+
+<a href="#xifu_config.XIFU_Config" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+
+        <p>Class created to store the constants used throughout the simulation</p>
+
+
+
+
+
+
+
+              <details class="quote">
+                <summary>Source code in <code>src/xifu_cluster_sim/xifu_config.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">XIFU_Config</span><span class="p">:</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class created to store the constants used throughout the simulation</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        - Pixel size = $317\cdot10^{-6}$m</span>
+<span class="sd">        - Focal length = 12m</span>
+<span class="sd">        - Pointing shape in pixels 58x58</span>
+<span class="sd">        - Number of pixels = 1504</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pixel_size_m</span> <span class="o">=</span> <span class="mf">317e-6</span>  <span class="c1">#meters</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">athena_focal_length</span> <span class="o">=</span> <span class="mf">12.0</span> <span class="c1">#meters</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pointing_shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">58</span><span class="p">,</span><span class="mi">58</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">pixsize_arcsec</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pixel_size_m</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">athena_focal_length</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">radian</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">units</span><span class="o">.</span><span class="n">arcsec</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pixsize_degree</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pixel_size_m</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">athena_focal_length</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">radian</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">units</span><span class="o">.</span><span class="n">degree</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">xifu_pixel_number</span> <span class="o">=</span> <span class="mi">1504</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">std_xmlfile</span> <span class="o">=</span> <span class="s1">&#39;/xifu/usr/share/sixte/instruments/athena-xifu_2024_11/baseline/xifu_nofilt_infoc_high_bkg_AM.xml&#39;</span>
+</code></pre></div></td></tr></table></div>
+              </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="xifu_config.XIFU_Config.__init__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">()</span></code>
+
+<a href="#xifu_config.XIFU_Config.__init__" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <ul>
+<li>Pixel size = <span class="arithmatex">\(317\cdot10^{-6}\)</span>m</li>
+<li>Focal length = 12m</li>
+<li>Pointing shape in pixels 58x58</li>
+<li>Number of pixels = 1504</li>
+</ul>
+
+
+            <details class="quote">
+              <summary>Source code in <code>src/xifu_cluster_sim/xifu_config.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    - Pixel size = $317\cdot10^{-6}$m</span>
+<span class="sd">    - Focal length = 12m</span>
+<span class="sd">    - Pointing shape in pixels 58x58</span>
+<span class="sd">    - Number of pixels = 1504</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">pixel_size_m</span> <span class="o">=</span> <span class="mf">317e-6</span>  <span class="c1">#meters</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">athena_focal_length</span> <span class="o">=</span> <span class="mf">12.0</span> <span class="c1">#meters</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">pointing_shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">58</span><span class="p">,</span><span class="mi">58</span><span class="p">)</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">pixsize_arcsec</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pixel_size_m</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">athena_focal_length</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">radian</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">units</span><span class="o">.</span><span class="n">arcsec</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">pixsize_degree</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pixel_size_m</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">athena_focal_length</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">radian</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">units</span><span class="o">.</span><span class="n">degree</span><span class="p">)</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">xifu_pixel_number</span> <span class="o">=</span> <span class="mi">1504</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">std_xmlfile</span> <span class="o">=</span> <span class="s1">&#39;/xifu/usr/share/sixte/instruments/athena-xifu_2024_11/baseline/xifu_nofilt_infoc_high_bkg_AM.xml&#39;</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
 
 
 
