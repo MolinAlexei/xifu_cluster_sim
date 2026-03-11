@@ -20,11 +20,15 @@ from .xifu_config import XIFU_Config
 
 def quadratic_from_bin_averages(E_edges, V_row, boundary='natural', reg_eps=1e-12):
     """
-    Build piecewise quadratic per bin with exact bin averages and C1 continuity.
-    boundary: 'zero_slope', 'natural', or 'extrapolate'.
-      - 'zero_slope': enforce derivative = 0 at both ends
-      - 'natural'   : enforce second derivative = 0 at both ends (a_0 = a_last = 0)
-      - 'extrapolate': set right-end derivative from trend of last bins (left derivative = 0)
+    Build piecewise quadratic function per bin with exact bin averages and C1 continuity.
+    This function is used to build a smooth function of vignetting that is not binned.
+    It defines the right system of equations as a matrix multiplication and then solves it to obtain the coefficients of the quadratic function.
+
+    Parameters:
+        E_edges (np.array): Edges of the bins at which the averages are computed
+        V_row (np.array): Average in each bin
+        boundary (str): 'zero_slope', 'natural', or 'extrapolate'. 'zero_slope': enforce derivative = 0 at both ends. 'natural'   : enforce second derivative = 0 at both ends (a_0 = a_last = 0). 'extrapolate': set right-end derivative from trend of last bins (left derivative = 0)
+        reg_eps (float): Regularization term
     """
     E_edges = np.asarray(E_edges, dtype=float)
     V_row = np.asarray(V_row, dtype=float)
@@ -39,14 +43,14 @@ def quadratic_from_bin_averages(E_edges, V_row, boundary='natural', reg_eps=1e-1
     def avg_basis(Δ):
         return np.array([Δ**2 / 3.0, Δ / 2.0, 1.0], dtype=float)
 
-    # 1) bin-average constraints
+    # bin-average constraints
     for i in range(n_bins):
         Ei = E_edges[i]; Ej = E_edges[i+1]; Δ = Ej - Ei
         A[row_idx, 3*i:3*i+3] = avg_basis(Δ)
         rhs[row_idx] = V_row[i]
         row_idx += 1
 
-    # 2) continuity constraints (value + slope) between bins
+    # continuity constraints (value + slope) between bins
     for i in range(n_bins - 1):
         Ei = E_edges[i]; Ej = E_edges[i+1]; Δ = Ej - Ei
         # value continuity: a_i*Δ^2 + b_i*Δ + c_i - c_{i+1} = 0
@@ -60,7 +64,7 @@ def quadratic_from_bin_averages(E_edges, V_row, boundary='natural', reg_eps=1e-1
         rhs[row_idx] = 0.0
         row_idx += 1
 
-    # 3) boundary conditions
+    # boundary conditions
     if boundary == 'zero_slope':
         # left derivative b_0 = 0
         A[row_idx, 1] = 1.0
@@ -118,9 +122,25 @@ def quadratic_from_bin_averages(E_edges, V_row, boundary='natural', reg_eps=1e-1
     return coeffs
 
 def eval_quadratic_piecewise(E_edges, coeffs, E_eval):
+    r"""
+    Evaluates a quadratic function, given its coefficients as computed by quadratic_from_bin_averages.
+    In each bin, the function is 
+    $$f(x) = a x^2 + bx + c$$
+
+    Parameters:
+        E_edges (np.array): Edges of the bins used for the computation of the coefficients
+        coeffs (np.array): Coefficients of the quadratic function
+        E_eval (np.array): Points at which to compute the quadratic function
+    """
+
+
+    # Make sure it's arrays
     E_edges = np.asarray(E_edges, dtype=float)
     E_eval = np.asarray(E_eval, dtype=float)
     vals = np.zeros_like(E_eval, dtype=float)
+
+
+    # For each coefficient
     for i in range(len(coeffs)):
         a,b,c = coeffs[i]
         left = E_edges[i]; right = E_edges[i+1]
@@ -135,15 +155,38 @@ def eval_quadratic_piecewise(E_edges, coeffs, E_eval):
 
 
 class MakeSpectra:
+    """
+    Class to create spectra from event lists output by SIXTE. This creates one spectrum per bin, given a binning, 
+    with the corresponding ARF that accounts for the vignetting.
+    """
     def __init__(self,
                 binning,
                 xifu_config = XIFU_Config()):
+        """
+        Instantiate the class
+
+        Parameters:
+            binning (binning): Binning object created with the binning functions
+            xifu_config (XIFU_Config): X-IFU Config object
+        """
         self.binning = binning
         self.xifu_config = xifu_config
         
     def load_vignetting(self,
                        vign_file_path = '/xifu/usr/share/sixte/instruments/athena-xifu_2024_11/baseline/instdata/athena_vig_13rows_20240326.fits',
                        arf_file_path = '/xifu/home/mola/XIFU_Sims_Turbulence_NewConfig/ARF.arf'):
+        """
+        Load the vignetting file and compute the vignetting as a continuous function of energy using 
+        a quadratic function. This allows to take the vignetting into account without awkwarldy dealing with 
+        the fact that it is binned in energy. 
+        The vignetting file contains the average vignetting for a given offset angle and within a given energy bin.
+        I approximate it by a smooth continuous quadratic function in energy in each bin, such that the average in each bin
+        corresponds to the file.
+
+        Parameters:
+            vign_file_path (str): Path to the vignetting file
+            arf_file_path (str): Path to the ARF file
+        """
         
         # Load vignetting file and assign arrays
         hdu_vign=fits.open(vign_file_path)
@@ -167,11 +210,14 @@ class MakeSpectra:
                                     	)
         								)
 
+        # For each offset angle in the vignetting file
         for i in range(self.theta.shape[0]):
+            # Compute coefficients of the quadratic function
             coeffs = quadratic_from_bin_averages(self.vign_E_bins, 
                                                  self.vignet_integre[i], 
                                                  boundary = 'natural')
             
+            # Compute quadratic function at offset angle
             self.vign_on_arf_bins[i] = eval_quadratic_piecewise(self.vign_E_bins, 
                                                            coeffs, 
                                                            self.E_arf) 
@@ -180,6 +226,14 @@ class MakeSpectra:
     def load_event(self,
                    event_file_path,
                    grades_to_keep = [1]):
+
+        """
+        Load event file to transform into spectra
+
+        Parameters:
+            event_file_path (str): Path to the event file
+            grades_to_keep (list): List of valid grades to keep for event making
+        """
         
         hdu_evt = fits.open(event_file_path)
         self.event_file_path = event_file_path
@@ -199,6 +253,15 @@ class MakeSpectra:
     def make_arfs_and_spectra(self, 
                               spectra_path,
                               numproc = 1):
+
+        """
+        Create one spectrum and one arf per bin in the binning.
+        Parallelized over N processes.
+
+        Parameters:
+            spectra_path (str): Path to where the events and spectra should be stored
+            numproc (int): Number of parallel processes 
+        """
         
         results = Parallel(n_jobs=numproc, 
                            prefer="threads",
@@ -216,6 +279,13 @@ class MakeSpectra:
     def make_single_arf_and_spectrum(self, 
                                      bin_number,
                                      spectra_path):
+        """
+        Create a spectrum and arf for a given bin number.
+
+        Parameters:
+            bin_number (int): Bin number in the binning object
+            spectra_path (str): Where to save the ARF, event file and spectrum that have been created
+        """
         
         pixels_in_region=self.binning.binning_dict[bin_number][0]
         interpolated_vignet = np.zeros_like(self.E_arf)

@@ -8,12 +8,24 @@ import astropy.units as u
 
 class SpatialGrid3D:
 
-    def __init__(self, pixsize=8.71, shape=(58, 58), los_factor=5,
-                    x_off = 0, y_off = 0, z_off = 0):
+    def __init__(self, 
+                pixsize=8.71, 
+                shape=(58, 58), 
+                los_factor=5,
+                x_off = 0, 
+                y_off = 0, 
+                z_off = 0):
         """
-        pixsize is in kpc 
-        shape is the 2D shape of the image 
-        crop_r_500 is the line of sight extent
+        Define 3D spatial grid
+
+        Parameters:
+            pixsize (float): Projected pixel size in kiloparsecs
+            shape (tuple): Size of grid on the field of view (Nx,Ny)
+            los_factor (int): Factor by which the z-axis is multiplied (Nz = los_factor * Nx) 
+            x_off (int) : Offset along x, in pixels
+            y_off (int) : Offset along x, in pixels
+            z_off (int) : Offset along x, in pixels
+
         """
 
         self.pixsize = pixsize
@@ -35,6 +47,13 @@ class SpatialGrid3D:
 class FourierGrid3D:
 
     def __init__(self, spatial_grid):
+        """
+        Define 3D Fourier grid from spatial grid
+
+        Parameters:
+            spatial_grid (class): 3D spatial grid 
+            
+        """
 
         self.kx = fft.fftfreq(len(spatial_grid.x), d=spatial_grid.x[1] - spatial_grid.x[0])
         self.ky = fft.fftfreq(len(spatial_grid.y), d=spatial_grid.y[1] - spatial_grid.y[0])

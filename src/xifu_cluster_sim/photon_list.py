@@ -245,12 +245,12 @@ class PhotonList:
         in norm, temperature, abundance and redshift
         
         Parameters:
-            ra (float) : RA of given point
-            dec (float) : DEC of given point
-            norm (float) : norm of given point
-            temperature (float) : norm of given point
-            abundance (float) : abundance of given point
-            redshift (float) : redshift of given  point
+            ra (float): RA of given point
+            dec (float): DEC of given point
+            norm (float): norm of given point
+            temperature (float): norm of given point
+            abundance (float): abundance of given point
+            redshift (float): redshift of given  point
         '''
         emin=self.E_bounds[:-1]
         emax=self.E_bounds[1:]
@@ -320,9 +320,9 @@ class PhotonList:
         A folder "sixte_files" is created in the given path. Several folders called
         "part_1", "part_2"... are created in "sixte_files.
 
-        Parameters
+        Parameters:
             photon_list (list): List of photons created
-            num_divisions (float) : Number of divisions of the photon list
+            num_divisions (float): Number of divisions of the photon list
             path (str): Path for where to save the photon list
             name_format (str): Prefix to give to each photon list
         '''
@@ -369,13 +369,13 @@ class PhotonList:
         simulator. See the SIMPUT definition for reference: 
         http://hea-www.harvard.edu/heasarc/formats/simput-1.1.0.pdf
         
-        Parameters
-            ra (np.array) : The RA positions of the photons in degrees.
-            dec (np.array) : The Dec positions of the photons in degrees.
-            energy (np.array) : The energies of the photons in keV. 
-            flux (float) : Total flux of photons in erg/s/cm**2 in the reference energy band.
-            simputfile (str) : Name of the simput file to write
-            clobber (bool) : Set to True to overwrite previous files.
+        Parameters:
+            ra (np.array): The RA positions of the photons in degrees.
+            dec (np.array): The Dec positions of the photons in degrees.
+            energy (np.array): The energies of the photons in keV. 
+            flux (float): Total flux of photons in erg/s/cm**2 in the reference energy band.
+            simputfile (str): Name of the simput file to write
+            clobber (bool): Set to True to overwrite previous files.
         """
 
 

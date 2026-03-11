@@ -18,12 +18,36 @@ class LoadBinning :
                  shape = (360,360),
                  binning_file = '/xifu/home/mola/Turbu_300kpc_mosaics/repeat10_125ks/19p_region_200/region_files/19p_region_dict.p',
                  count_map_file = '/xifu/home/mola/Turbu_300kpc_mosaics/repeat10_125ks/19p_count_image.fits'):
+        """
+        Initialize the loading
+
+        Parameters:
+            shape (tuple): Shape of the full image of the cluster that is used for the binning
+            binning_file (str): Path to the pickle file
+            count_map_file (str): Path to the count map used for binning
+        """
         
         self.shape = shape
         self.binning_dict, self.region_image = pickle.load(open(binning_file, 'rb'), encoding="bytes")
         self.countmap = np.array(fits.getdata(count_map_file))
 
     def __call__(self):
+        """
+        Loads the binning
+
+        Returns:
+            X_pixels (jnp.array): Array of x coordinate of each pixel on the xifusim images
+            Y_pixels (jnp.array): Array of y coordinate of each pixel on the xifusim images 
+            bin_num_pix (jnp.array): Array of the bin number of each pixel
+            nb_bins (int): Number of bins
+            xBar_bins (jnp.array): Arrays of the count-wieghted barycenters, x coordinate
+            yBar_bins (jnp.array): Arrays of the count-wieghted barycenters, y coordinate 
+            bin_nb_map (jnp.array):  Map of the bin numbers (mainly used as a sanity check)
+        """
+
+        # There are a few strange manipulations here but they are worth it, 
+        # as it is much faster than the previous implementation
+
 
         # Convert to pandas dataframe
         df = pd.DataFrame.from_dict(self.binning_dict).drop(-1, axis = 1)
@@ -65,13 +89,25 @@ class MakeBinning():
     """
     Make a Voronoi binning of the count map
     """
+
     def __init__(self,
                  shape = (360,360),
                  binning_file = '/xifu/home/mola/Turbu_300kpc_mosaics/repeat10_125ks/19p_region_200/region_files/19p_region_dict.p',
                  count_map_file = '/xifu/home/mola/Turbu_300kpc_mosaics/repeat10_125ks/19p_count_image.fits',
                  count_map = None,
                  xifu_config = XIFU_Config()):
-        
+        """
+        Initialize the loading
+
+        Parameters:
+            shape (tuple): Shape of the full image of the cluster that is used for the binning
+            binning_file (str): Path to the pickle file that will be saved
+            count_map_file (str): Path to the count map used for binning, loaded if count map not directly given
+            count_map (jnp.array): Count map
+            xifu_config (XIFU_Config): Instance of X-IFU configuration
+
+        """
+                
         self.shape = shape
         self.binning_file = binning_file
         self.xifu_config = xifu_config
@@ -93,15 +129,27 @@ class MakeBinning():
                                pix2xy_file = '/xifu/home/mola/xifu_cluster_sim/data/pix2xy_newxifu.p',
                                snr = 200,
                                voronoi_binning_quiet = True):
-        '''
-        Computes the dictionnary for a voronoi region
+        """
+        Computes a Voronoi binning
+        
+        Parameters:
+            x_offset (int): Offset in x, if binning not centered on full image
+            y_offset (int): Offset in y, if binning not centered on full image
+            save_dict (bool): Whether to save the created binning to a pickle file
+            pix2xy_file (str): Path to the pickle file containing the conversion of pixids vs position on array
+            snr (int): Signal-to-noise ratio to use for binning
+            voronoi_binning_quiet (bool): Whether to shut off outputs of the voronoi binning which can be verbous
 
-        - image (array) containing the equivalent fits file
-        - mask_file (array) containing the mask file
-        - voronoi_output (string) points to output txt file
-        - binmap (string) points to output pickle file
-        - snr (int) S/N ratio targeted
-        '''
+        Returns:
+            X_pixels (jnp.array): Array of x coordinate of each pixel on the xifusim images
+            Y_pixels (jnp.array): Array of y coordinate of each pixel on the xifusim images 
+            bin_num_pix (jnp.array): Array of the bin number of each pixel
+            nb_bins (int): Number of bins
+            xBar_bins (jnp.array): Arrays of the count-wieghted barycenters, x coordinate
+            yBar_bins (jnp.array): Arrays of the count-wieghted barycenters, y coordinate 
+            bin_nb_map (jnp.array):  Map of the bin numbers (mainly used as a sanity check)
+
+        """
         
         # Arrays of x and y coordinate of each pixel on the xifusim images
         X, Y = np.where(self.countmap != 0. )

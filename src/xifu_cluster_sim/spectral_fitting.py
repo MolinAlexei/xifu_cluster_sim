@@ -15,9 +15,14 @@ import pandas as pd
 
 def load_model(infile, pars_only=False):
     '''
-    Retourne le model defini dans le fichier infile
-    - infile (string) .xcm file
-    - pars_only (boolean) option to return paramaters only
+    Convenience function for loading an xspec model from a .xcm file
+
+    Parameters:
+        infile (str): Path to .xcm file
+        pars_only (bool): Option to return paramaters only
+
+    Returns:
+        m (xspec.Model): Loaded XSPEC Model
     '''
     #On recupere le nom du modele
     model_file = open(infile,'r')
@@ -89,6 +94,14 @@ def load_model(infile, pars_only=False):
         return mod_name, Pars, Frozen
     
 def shakefit(dchi,model):
+    """
+    Function to "shake" a fit. Can be used to get it out of local minima.
+    Function that was introduced by Peille, Cucchetti during their work.
+    Ideally, should not be used. The fit should either be instanciated to a true known minimum 
+    or a Bayesian approach should be used (e.g. MCMC, BXA, or others).
+
+    """
+
     nopar = model.nParameters
     xs.Fit.nIterations=100
     pattern = re.compile(r'F........')
@@ -113,16 +126,33 @@ def shakefit(dchi,model):
                 delchi*=2
                 
 class FitSpectra():
+    """
+    Class used for spectral fitting of multiple spectra with same model.
+    This has been written for fitting spectra of galaxy clusters with/without background.
+    """
     def __init__(self,
                 model_file,
                 binning,
                 background=False,
                 E_min = 0.2,
                 E_max = 12.,
-                NXB_requirement = 5e-3,
+                NXB_requirement = 8e-3,
                 astro_bkg_model = None, 
                 cosmic_bkg_model = None,
                 xifu_config = XIFU_Config()):
+        """
+        Initialize class
+
+        Parameters:
+            model_file (str): Path to .xcm file containg the model to use (with abundances, cosmo and cross-section)
+            binning (binning): Binning instance (to iterate over spectra in each bin)
+            E_min (float): Minimum energy of spectra to take into account
+            E_max (float): Maximum energy of spectra to take into account
+            NXB_requirement (float): Expected counts of NXB in counts/cm2/s/keV, as a requirement within X-IFU
+            astro_bkg_model (str): Path to AXB model
+            cosmic_bkg_model (str): Path to CXB model
+            xifu_config (XIFU_Config): X-IFU Configuration instance
+        """
         
         self.model_file = model_file
         self.binning = binning
@@ -142,21 +172,39 @@ class FitSpectra():
                     log_fitting = True,
                     chatter = 10,
                     do_shakefit = True):
+        """
+        Fit single spectrum
+
+        Parameters:
+            pha_file (str): Path to spectrum as a .pha file
+            arf_file (str): Path to arf used for spectrum
+            pix_in_region (int): Number of pixels for which the spectrum has been extracted
+            log_fitting (bool): Whether to log the fitting in a .log file
+            chatter (int): Chatter level of xspec (0 = shut up)
+            do_shakefit (bool): Whether to use the shakefit after fitting
+
+        Returns:
+            pars_dict (dict): Dictionary of best-fit values for free parameters of each model
+        """
               
+        # Set chatter and clear everything
         xs.Xset.chatter = chatter
         xs.AllChains.clear()
         xs.AllData.clear()
         xs.AllModels.clear()
 
-        #xs.Xset.restore(self.model_file)
+        # Load model
+        #xs.Xset.restore(self.model_file) #Doesnt work for this
         #m = xs.AllModels(1)
         m = load_model(self.model_file)
 
+        # Setup logging
         logfile = pha_file.replace('.pha','.log')
         if log_fitting :
             xs.Xset.logChatter = 10
             xs.Xset.openLog(logfile)
 
+        # Load spectrum
         s = xs.Spectrum(pha_file)
         s.response.arf = arf_file
 
@@ -222,10 +270,10 @@ class FitSpectra():
         if do_shakefit:
             shakefit(1,m)
 
-        # Return chi2 if this is a nested fit
+        # Chi2
         chi2 = xs.Fit.statistic
 
-        # Get fit results
+        # Get fit results as a dictionary
         m.show()
 
         pars_dict = {}
@@ -267,7 +315,20 @@ class FitSpectra():
                         save_fit_results = False,
                         do_shakefit = True):
         
-        # Test value of 32
+        """
+        Launch fitting over spectra from all bins of binning, in parallel
+
+        Parameters:
+            spectra_path (str): Path to spectra (assumes spectra/arfs have been saved as spec_k.pha / spec_k.arf for bin number k)
+            numproc (int): Number of parallel processes
+            log_fitting (bool): Whether to log the fitting
+            chatter (int): Chatter level of xspec (0 = shut up)
+            save_fit_results (bool): Whether to save the results of the fit as a .csv file
+            do_shakefit (bool): Whether to use shakefit after fitting
+
+        Returns:
+            df_results (pandas.Dataframe): Pandas dataframe containing parameters in columns, and best fit values for each bin in rows
+        """
         n_bins = self.binning.nb_bins
         args_list = zip([spectra_path + 'spec_{}.pha'.format(k) for k in range(n_bins)],
                         [spectra_path + 'spec_{}.arf'.format(k) for k in range(n_bins)],
@@ -287,6 +348,7 @@ class FitSpectra():
                                 )
         self.best_fit_values = results
 
+        # Convert to pandas dataframe
         rows = [
                     {k: (v[0] if isinstance(v, (list, tuple)) else v) for k, v in d.items()}
                     for d in results
@@ -294,9 +356,8 @@ class FitSpectra():
 
         df_results = pd.DataFrame(rows)
 
-
+        # Save fit
         if save_fit_results :
-            #np.save(spectra_path + 'fit_all_spectra_res.npy', np.array(results))
             df_results.to_csv(spectra_path + 'fit_all_spectra_res.csv')
 
         return df_results
@@ -305,7 +366,24 @@ class FitSpectra():
     def make_bestfit_maps(self,
                           maps_path,
                           cluster_redshift = None,
-                        save_maps = False):
+                          save_maps = False):
+        """
+        Make maps of best-fit parameters. 
+        If saved, they are saved as 'output_maps.npz'
+
+        Parameters:
+            maps_path (str): Path to the directory to save the maps
+            cluster_redshift (float): Redshift of the cluster (used for the conversion of best fit redshift to bulk motion in km/s)
+            save_maps (bool): Whether to save the maps
+
+        Returns:
+            best_fit_norm (np.array): Map of best-fit norm
+            best_fit_kT (np.array): Map of best-fit temperature
+            best_fit_Z (np.array): Map of best-fit abundance
+            best_fit_z (np.array): Map of best-fit redshift
+            best_fit_v (np.array): Map of best-fit velocity as converted from redshift, from which cluster redshift is substracted
+            best_fit_broad (np.array): Map of best-fit velcoty broadening
+        """
         
         best_fit_norm = np.zeros(self.binning.shape)
         best_fit_kT = np.zeros(self.binning.shape)

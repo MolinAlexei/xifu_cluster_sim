@@ -128,10 +128,18 @@ class ClusterCube:
 
         $$\dfrac{T(x)}{T_{500}} = T_0 \dfrac{\frac{T_\mathrm{min}}{T_0} + (\frac{x}{r_\mathrm{cool}})^{a_\mathrm{cool}}}{1 + (\frac{x}{r_\mathrm{cool}})^{a_\mathrm{cool}}} \frac{1}{(1 + (\frac{x}{r_t})^2)^{\frac{c}{2}}}$$
 
+        with :
+
+        $$T_{500} = 8.85 \mathrm{~keV} \left(\frac{M_{500}}{h_{70}^{-1}10^{15} M_\odot } \right)^{2/3} E(z)^{2/3}(\frac{\mu}{0.6})$$
+
         Parameters:
             M500 (float): Characteristic mass of cluster
+            T0 (float): Normalization factor
             rcool (float): Shape radius 1 in units of R/R500
-            
+            rt (float): Shape radius 2 in units of R/R500
+            acool (float): Shape parameter 1
+            c2 (float): Shape parameter 2
+
         Returns:
 
         """
@@ -150,13 +158,11 @@ class ClusterCube:
         self.kT_cube = T_500 * T0 * term1 / term2 * jnp.heaviside(5. - x, 0)
         
     def create_Z_cube(self):
-        """
+        r"""
         Compute the abundance function for a given radius, following Mernier et al 2017.
-        All parameters are fixed.
+        All parameters are fixed. It is clipped to 0 after 5 R_500.
 
-        Parameters:
-            
-        Returns:
+        $$Z(x) = 0.21 (x + 0.021)^{-0.48} - 6.54 e^{-\frac{(x+0.0816)^2}{0.0027}}$$
         
         """
 
@@ -165,7 +171,7 @@ class ClusterCube:
                 
         
     def create_norm_cube(self):
-        """
+        r"""
         Compute the norm for the xspec apec model
 
         $$\text{norm} = \frac{1}{4 \pi (D_A(1+z))^2 \int n_e n_H dV}$$
@@ -229,11 +235,11 @@ class ClusterCube:
         r"""
         Converts velocity to redshift following :
 
-        $$z_mathrm{turb} = \sqrt{\frac{c + v}{c - v} - 1$$
+        $$z_\mathrm{turb} = \sqrt{\frac{c + v}{c - v}} - 1$$
 
         And 
 
-        $$z_\mathrm{tot} = (1+z_mathrm{turb})(1+z_mathrm{cluster})$$
+        $$z_\mathrm{tot} = (1+z_\mathrm{turb})(1+z_\mathrm{cluster})$$
 
 
         """

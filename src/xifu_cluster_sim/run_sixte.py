@@ -7,31 +7,32 @@ import subprocess
 
 def run_sixte_sim_multiproc(numproc,
                             path = '/xifu/home/mola/xifu_cluster_sim/clusters/obs5_reproduction/',
-                            ph_list_prefix="ph_list",
-                            evt_file_prefix='event_list',
-                            exposure=1e5,
-                            ra=0.,
-                            dec=0.,
-                            std_xmlfile='/data/xifu/usr/SIXTE/share/sixte/instruments/athena/xifudev/xifu_baseline.xml',
-                            astro_bkg_simput=None, 
-                            cosmic_bkg_simput=None, 
-                            background=False):
+                            ph_list_prefix ="ph_list",
+                            evt_file_prefix ='event_list',
+                            exposure = 1e5,
+                            ra = 0.,
+                            dec = 0.,
+                            std_xmlfile = '/data/xifu/usr/SIXTE/share/sixte/instruments/athena/xifudev/xifu_baseline.xml',
+                            astro_bkg_simput = None, 
+                            cosmic_bkg_simput = None, 
+                            background = False):
     '''
-    Function to launch one SIXTE process per core 
-    using the photon lists generated for a cluster sim.
+    Function to launch one SIXTE process per core using the photon lists generated for a cluster sim.
     Will overwrite existing event files.  
     Matches the syntax used in SIXTE 3.0.5
+
     Parameters:
-        numproc (int): number of processes to run 
-        path (str): directory in which to save the resulting ph lists
-        ph_list_prefix (str): prefix to use for the simput file names
-        evt_file_prefix (str): prefix to use for the event file names
-        clobber (bool): standard FITS clobber option
-        exposure (float): exposure to use for the photon generation
-        std_xmlfile (str): standard XML file to use for the simulations
-        background (bool): option to include NXB
-        astro_bkg_simput (str): path to simput file with astrophysical background
-        cosmic_bkg_simput (str): path to simout file with cosmic AGNs
+        numproc (int): Number of processes to run 
+        path (str): Directory in which to look for the photon lists
+        ph_list_prefix (str): Prefix to use for the simput file names
+        evt_file_prefix (str): Prefix to use for the event file names
+        exposure (float): Exposure to use for the photon generation
+        ra (float): Right ascension of the pointing
+        dec (float): Declination of the pointing
+        std_xmlfile (str): Standard XML file to use for the simulations
+        background (bool): Option to include NXB
+        astro_bkg_simput (str): Path to simput file with astrophysical background
+        cosmic_bkg_simput (str): Path to simout file with cosmic AGNs
     '''   
 
     list_w = []
@@ -187,17 +188,19 @@ def run_sixte_sim_notebook(nparts,
     using the photon lists generated for a cluster sim.
     Will overwrite existing event files.  
     Matches the syntax used in SIXTE 3.0.5
+
     Parameters:
         nparts (int): number of parts of photon lists
-        path (str): directory in which to save the resulting ph lists
-        ph_list_prefix (str): prefix to use for the simput file names
-        evt_file_prefix (str): prefix to use for the event file names
-        clobber (bool): standard FITS clobber option
-        exposure (float): exposure to use for the photon generation
-        std_xmlfile (str): standard XML file to use for the simulations
-        background (bool): option to include NXB
-        astro_bkg_simput (str): path to simput file with astrophysical background
-        cosmic_bkg_simput (str): path to simout file with cosmic AGNs
+        path (str): Directory in which to look for the photon lists
+        ph_list_prefix (str): Prefix to use for the simput file names
+        evt_file_prefix (str): Prefix to use for the event file names
+        exposure (float): Exposure to use for the photon generation
+        ra (float): Right ascension of the pointing
+        dec (float): Declination of the pointing
+        std_xmlfile (str): Standard XML file to use for the simulations
+        background (bool): Option to include NXB
+        astro_bkg_simput (str): Path to simput file with astrophysical background
+        cosmic_bkg_simput (str): Path to simout file with cosmic AGNs
     '''
 
     for i in range(nparts):

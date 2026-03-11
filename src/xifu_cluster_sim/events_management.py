@@ -7,19 +7,23 @@ from .xifu_config import XIFU_Config
 
 def merge_evt_files_recursive(output_file,
                             pattern,
-                            clobber=False,
-                            file_list=None,
+                            clobber = False,
+                            file_list = None,
                             depth=0):
     '''
-    Merges different event files matching a given pattern recursively 
+    Merges different event files matching a given pattern recursively.
+    This is needed when running multiple SIXTE processes in parallel, 
+    in order to merge the output event files.
     
+
     Parameters:
         output_file (str): name of the final event list to write
-        pattern (str): pattern to find the event files to merge
+        pattern (str): pattern to find the event files to merge (e.g. "/sixte_files/part[0-9]*/events_[0-9]*.fits")
         clobber (bool): standard FITS clobber option
         file_list (list): list of files to merge (for recursive calls)
         depth (int): depth of recursive call
     '''        
+
     if file_list==None:
         file_list = glob(pattern)
         
@@ -62,6 +66,18 @@ def create_count_map(final_evt_file,
                     dec = 0.,
                     count_map_shape = (58,58),
                     xifu_config = XIFU_Config()):
+    """
+    Create a count map using the imgev function from SIXTE.
+
+    Parameters:
+        final_evt_file (str): Path to event file from which to make the count map
+        image_file (str): Path and name of count map
+        ra (float): Right ascension of pointing represented
+        dec (float): Declination of the pointing represented
+        count_map_shape (tuple): Shape of the count map (default for one X-IFU pointing is 58x58)
+        xifu_config (XIFU_Config): X-IFU Configuration instance
+
+    """
     
     pixsize_degree = xifu_config.pixsize_arcsec.to(units.degree).value
 

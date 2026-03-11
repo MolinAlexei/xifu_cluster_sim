@@ -6,10 +6,23 @@ import jax.numpy as jnp
 import time
 
 class StructureFunction:
+    r"""
+    Compute the second order structure function on a 2D binned map as
+    $\mathrm{SF}(s) = \frac{1}{N_p(s)} \sum_{d(\mathcal{W}_1, \mathcal{W}_2) = s} |C_{\mathcal{W}_1} - C_{\mathcal{W}_2}|^2$
+
+    with 
+    $\mathcal{W}_1, \mathcal{W}_2$ two separate regions, $d$ the distance that separates them and $N_p$ the number of pairs separated by $s$.
+    """
 
     def __init__(self,
                 bins = np.geomspace(1,40,15)
                 ):
+        """
+        Initialize
+
+        Parameters:
+            bins (np.array): Bins over which the structure function is computed, in units of pixels.
+        """
 
         self.bins = bins
 
@@ -17,20 +30,17 @@ class StructureFunction:
                         binning,
                         v_bin_vec):
         """
-        Computes the 2nd order structure function of an image with arbitrary binning.
+        Computes the 2nd order structure function from a vector.
+        This vector is taken from a binning, where the i-th value of the vector is the value in the i-th bin of the map.
         
-        Parameters
-        ----------
-        v_bin_vec : array
-            Array of the count weighted velocity in each bin
+        Parameters:
+            binning (binning): Binning instance
+            v_bin_vec (jnp.array): Array of the value in each bin
         
 
-        Returns
-        ------- 
-        bin_dists : array
-            Separations of the SF
-        bin_means : array 
-            Values of the SF
+        Returns:
+            bin_dists (jnp.array): Separations of the SF
+            bin_means (jnp.array): Values of the SF
         """
         
         #Indexes of all possible combinations
@@ -64,31 +74,23 @@ class StructureFunction:
         
         #Note : in principle, we shouldn't be taking the average distance in each bin, we should
         #take the bin center, but that's for comparison purposes with Edo's code
+        #For most cases, with a lot of values in each bin, the average is equivalent with the bin center.
         
         return hist_dists, bin_means
 
     def compute_from_map(self, binning, v_map):
         """
-        Computes the 2nd order structure function of an image with arbitrary binning.
+        Computes the 2nd order structure function of a binned image with arbitrary binning.
         
-        Parameters
-        ----------
-        v_bin_vec : array
-            Array of the count weighted velocity in each bin
-        xbary : array
-            Array of the bin barycenters X coordinate
-        ybary : array
-            Array of the bin barycenters Y coordinate
-        bins : array, optional
-            Array of the binning chosen for the SF
-
-        Returns
-        ------- 
-        bin_dists : array
-            Separations of the SF
-        bin_means : array 
-            Values of the SF
+        Parameters:
+            binning (binning): Binning instance
+            v_bin_vec (jnp.array): Map of the binned values
+        
+        Returns:
+            bin_dists (jnp.array): Separations of the SF
+            bin_means (jnp.array): Values of the SF
         """
+        
         v_bin_vec = jnp.ones(binning.nb_bins)
         v_bin_vec = v_bin_vec.at[binning.bin_num_pix].set(v_map[binning.X_pixels,
                                                                 binning.Y_pixels])
