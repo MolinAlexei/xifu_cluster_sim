@@ -282,7 +282,6 @@ class ClusterCube:
         
     def create_input_maps(self,
                           binning, 
-                          PSF_kernel,
                           save_maps = False,
                           path_save = './'):
         """
@@ -304,7 +303,7 @@ class ClusterCube:
         summed_std = jnp.sum(self.v_cube**2*self.norm, axis = -1)
 
         # Convolution by PSF
-        PSF_kernel*= 1/np.sum(PSF_kernel)
+        PSF_kernel = self.xifu_config.PSF_image
         summed_norm_conv = signal.convolve(summed_norm, PSF_kernel, mode = 'same')
         summed_kT_conv = signal.convolve(summed_kT, PSF_kernel, mode = 'same')
         summed_Z_conv = signal.convolve(summed_Z, PSF_kernel, mode = 'same')

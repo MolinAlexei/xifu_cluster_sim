@@ -19,6 +19,9 @@ parser.add_argument("--pointing_names",
 	nargs = '+',
 	type = str,
 	help = "Names of the pointings")
+parser.add_argument("--cluster_z",
+	type = float,
+	help = "Cluster redshift")
 parser.add_argument("--mosaic_shape", 
 	type = tuple, 
 	help = "Shape of the full mosaic", 
@@ -34,16 +37,18 @@ parser.add_argument("--cluster_file",
 parser.add_argument("--interp_files_path", 
 	type = str, 
 	help = "Path to the interpolated files of the spectra", 
-	default = '/xifu/home/mola/XIFU_Sims_Turbulence_NewConfig/Observation5/files/')
+	default = '/xifu/home/mola/xifu_cluster_sim/data/spectres_interpoles_T_Z_z0p1.npz')
 parser.add_argument("--skip_photon_list", 
 	action = 'store_true',
 	help = "Skip photon list generation", 
 	default = False)
 
+
 args = parser.parse_args()
 
 if args.cluster_file is not None :
-	cluster = ClusterCube(shape = args.mosaic_shape)
+	cluster = ClusterCube(shape = args.mosaic_shape,
+		cluster_z = args.cluster_z)
 	cluster.load_cube(args.cluster_file)
 	cluster.convert_velocity_to_redshift()
 else :
@@ -54,7 +59,7 @@ mosaic = Mosaic(args.sim_path,
              	velocity_file = args.velocity_file,
              	binning_file = None,
                 mosaic_shape = args.mosaic_shape,
-                interp_files_path = args.interp_files_path
+                interp_table = args.interp_files_path
                 )
 
 

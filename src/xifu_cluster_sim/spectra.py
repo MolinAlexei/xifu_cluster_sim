@@ -172,9 +172,7 @@ class MakeSpectra:
         self.binning = binning
         self.xifu_config = xifu_config
         
-    def load_vignetting(self,
-                       vign_file_path = '/xifu/usr/share/sixte/instruments/athena-xifu_2024_11/baseline/instdata/athena_vig_13rows_20240326.fits',
-                       arf_file_path = '/xifu/home/mola/XIFU_Sims_Turbulence_NewConfig/ARF.arf'):
+    def load_vignetting(self):
         """
         Load the vignetting file and compute the vignetting as a continuous function of energy using 
         a quadratic function. This allows to take the vignetting into account without awkwarldy dealing with 
@@ -189,7 +187,7 @@ class MakeSpectra:
         """
         
         # Load vignetting file and assign arrays
-        hdu_vign=fits.open(vign_file_path)
+        hdu_vign=fits.open(self.xifu_config.vign_file_path)
         vign=hdu_vign[1].data
         self.vign_E_centers = (vign['ENERG_LO'] + vign['ENERG_HI'])[0]/2
         self.vign_E_widths = (vign['ENERG_HI'] - vign['ENERG_LO'])[0]
@@ -198,8 +196,7 @@ class MakeSpectra:
         self.theta = np.array(vign['THETA'][0])*60. #Arcminutes
         
         # Load arf data
-        self.arf_file_path = arf_file_path
-        hdu_arf = fits.open(arf_file_path)
+        hdu_arf = fits.open(self.xifu_config.arf_file_path)
         arf = hdu_arf[1].data
         self.arf_specresp = np.array(arf['SPECRESP'])
         self.E_arf = np.array(arf['ENERG_LO'] + arf['ENERG_HI'])/2
@@ -311,14 +308,14 @@ class MakeSpectra:
         interpolated_vignet /= counts_tot
         
         # Load and save modified ARF
-        hdu_arf = fits.open(self.arf_file_path)
+        hdu_arf = fits.open(self.xifu_config.arf_file_path)
         hdu_arf[1].data['SPECRESP'] = self.arf_specresp * np.array(interpolated_vignet)
         hdu_arf.writeto(spectra_path + 'spec_{}.arf'.format(bin_number), overwrite=True)
         
         # Load and save modified event
         hdu_evt = fits.open(self.event_file_path)
         hdu_evt['EVENTS'].header['ANCRFILE']= spectra_path + '/spec_{}.arf'.format(bin_number)
-        hdu_evt['EVENTS'].header['RESPFILE']= '/xifu/home/mola/XIFU_Sims_Turbulence_NewConfig/RMF.rmf'
+        hdu_evt['EVENTS'].header['RESPFILE']= self.xifu_config.rmf_file_path
         
         hdu_evt[1].data = self.evt_data[np.isin(self.evt_data['PIXID'],
                                                      pixels_in_region)]

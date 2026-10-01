@@ -29,7 +29,7 @@ class Mosaic:
                 binning_file = None,
                 mosaic_shape = (232,232),
                 velocity_file = None,
-                interp_files_path = '/xifu/home/mola/XIFU_Sims_Turbulence_NewConfig/Observation5/files/',
+                interp_table = '/xifu/home/mola/xifu_cluster_sim/data/spectres_interpoles_T_Z_z0p1.npz',
                 xifu_config = XIFU_Config()
                 ):
 
@@ -70,7 +70,7 @@ class Mosaic:
         self.cluster = cluster
 
         self.binning_file = binning_file
-        self.interp_files_path = interp_files_path
+        self.interp_table = interp_table
 
     def run_mosaic(self,
                 x_offsets,
@@ -87,11 +87,11 @@ class Mosaic:
         # Paths to the file containing interpolated fluxes and spectra
         print('Loading interpolation tables')
         cluster_redshift = self.cluster.cluster_z
-        flux_file = self.interp_files_path + "/flux_interp_z%.1f.npy" %(cluster_redshift)
-        flux_interp = self.interp_files_path + "/flux_table_z%.1f.npy" %(cluster_redshift)
-
-        interp_spec_scale = np.load(flux_interp,allow_pickle=True)
-        Z_scale,T_scale,_,_ = np.load(flux_file,allow_pickle=True)
+        
+        data = np.load(self.interp_table)
+        T_scale = data['T_scale']
+        Z_scale = data['Z_scale']
+        interp_spec_scale = data['spectra']
 
         # Energy bounds (hardcoded but I do not expect them to change)
         E_low = 0.2

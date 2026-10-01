@@ -192,6 +192,8 @@ class FitSpectra():
         xs.AllChains.clear()
         xs.AllData.clear()
         xs.AllModels.clear()
+        xs.Xset.addModelString('APECROOT', '/xifu/usr/src/heasoft/heasoft-6.35/spectral/modelData/apec_v3.0.9')
+
 
         # Load model
         #xs.Xset.restore(self.model_file) #Doesnt work for this
@@ -416,12 +418,12 @@ class FitSpectra():
             denom = (1+best_fit_z)**2 + (1+cluster_redshift)**2
             best_fit_v = const.c.to(units.km/units.s).value * num/denom
         
-        nb_pixels_per_bin = np.array(
-            [len(self.binning.binning_dict[k][0]
-                                    ) for k in range(self.binning.nb_bins)])
+        #nb_pixels_per_bin = np.array(
+        #    [len(self.binning.binning_dict[k][0]
+        #                            ) for k in range(self.binning.nb_bins)])
 
-        best_fit_norm[self.binning.X_pixels,
-                      self.binning.Y_pixels] /= nb_pixels_per_bin[self.binning.bin_num_pix]
+        #best_fit_norm[self.binning.X_pixels,
+        #              self.binning.Y_pixels] /= nb_pixels_per_bin[self.binning.bin_num_pix]
 
         if save_maps:
             np.savez_compressed(maps_path + 'output_maps.npz', 

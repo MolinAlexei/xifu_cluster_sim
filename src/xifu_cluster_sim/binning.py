@@ -3,7 +3,9 @@ import numpy as np
 import pickle
 from astropy.io import fits
 import pandas as pd
-from vorbin.voronoi_2d_binning import *
+#from vorbin.voronoi_2d_binning import *
+from powerbin import PowerBin
+
 
 from .xifu_config import XIFU_Config
 
@@ -85,7 +87,7 @@ class LoadBinning :
 
 
     
-class MakeBinning():
+class MakeBinning :
     """
     Make a Voronoi binning of the count map
     """
@@ -95,7 +97,8 @@ class MakeBinning():
                  binning_file = '/xifu/home/mola/Turbu_300kpc_mosaics/repeat10_125ks/19p_region_200/region_files/19p_region_dict.p',
                  count_map_file = '/xifu/home/mola/Turbu_300kpc_mosaics/repeat10_125ks/19p_count_image.fits',
                  count_map = None,
-                 xifu_config = XIFU_Config()):
+                 xifu_config = XIFU_Config(),
+                 use_vorbin = False):
         """
         Initialize the loading
 
@@ -111,6 +114,7 @@ class MakeBinning():
         self.shape = shape
         self.binning_file = binning_file
         self.xifu_config = xifu_config
+        self.use_vorbin = use_vorbin
         if count_map_file is not None :
             print('Loading :', count_map_file)
             self.countmap = jnp.array(fits.getdata(count_map_file), dtype = 'float32')
@@ -157,7 +161,8 @@ class MakeBinning():
         self.Y_pixels = Y
         
         # Voronoi binning
-        binNum, xNode, yNode, xBar, yBar, sn, nPixels, scale = voronoi_2d_binning(X, 
+        if self.use_vorbin : 
+            binNum, xNode, yNode, xBar, yBar, sn, nPixels, scale = voronoi_2d_binning(X, 
                                                                                   Y, 
                                                                                   self.countmap[X,Y], 
                                                                                   np.sqrt(self.countmap)[X,Y], 
@@ -165,13 +170,22 @@ class MakeBinning():
                                                                                   plot = 0, 
                                                                                   pixelsize = 1., 
                                                                                   quiet = voronoi_binning_quiet)
+        
+        else: 
+            pow_ = PowerBin(np.column_stack([X,Y]), 
+                            self.countmap[X,Y], 
+                            target_capacity = snr**2)
+            binNum = pow_.bin_num
+            xBar = pow_.xybin[:,0]
+            yBar = pow_.xybin[:,1]
+
 
         
         # Array of the bin number of each pixel
         self.bin_num_pix = jnp.array(binNum)
         
         # Number of bins
-        self.nb_bins = len(jnp.unique(jnp.array(binNum)))
+        self.nb_bins = len(jnp.unique(self.bin_num_pix))
         
         # Arrays of the count-weighted barycenters
         self.xBar_bins = jnp.array(xBar)
